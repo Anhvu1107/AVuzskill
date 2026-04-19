@@ -1,0 +1,8 @@
+interface:
+  display_name: "Frontend Design"
+  short_description: "Distinctive UI design with strong UX and production polish"
+  brand_color: "#1D4ED8"
+  default_prompt: "Use $frontend-design to shape the visual direction, UX hierarchy, and implementation quality of this interface."
+
+policy:
+  allow_implicit_invocation: true

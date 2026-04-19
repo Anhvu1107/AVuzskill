@@ -1,0 +1,8 @@
+interface:
+  display_name: "Web App Testing"
+  short_description: "Playwright-driven web testing, inspection, and debugging"
+  brand_color: "#DC2626"
+  default_prompt: "Use $webapp-testing to inspect the app, discover selectors, and verify critical user flows with browser automation."
+
+policy:
+  allow_implicit_invocation: true

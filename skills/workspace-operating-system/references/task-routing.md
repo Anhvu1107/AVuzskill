@@ -1,0 +1,64 @@
+# Task Routing
+
+Use this file first. It is the fastest way to map a request shape to the right skill.
+
+## Fast Map
+
+- Broad product or app request
+  - Primary: `app-builder`
+  - Support: `architecture`, `frontend-design`, `api-patterns`, `database-design`, `deployment-procedures`
+- Architecture or system design
+  - Primary: `architecture`
+  - Support: `app-builder`, `database-design`, `api-patterns`
+- Frontend or UI work
+  - Primary: `frontend-design`
+  - Support: `web-design-guidelines`, `tailwind-patterns`, `nextjs-react-expert`, `mobile-design`, `performance-profiling`
+- API and backend work
+  - Primary: `api-patterns`
+  - Support: `database-design`, `architecture`, `nodejs-best-practices`, `python-patterns`, `mcp-builder`
+- Database schema or data model work
+  - Primary: `database-design`
+  - Support: `architecture`, `api-patterns`
+- Debugging or broken behavior
+  - Primary: `systematic-debugging`
+  - Support: domain skill for the failing area, plus `webapp-testing` or `testing-patterns`
+- Code review or code quality
+  - Primary: `code-review-checklist`
+  - Support: `clean-code`, `testing-patterns`, `lint-and-validate`, `vulnerability-scanner`
+- Testing and verification
+  - Primary: `testing-patterns`
+  - Support: `webapp-testing`, `tdd-workflow`, `lint-and-validate`, `performance-profiling`
+- Web app browser automation
+  - Primary: `webapp-testing`
+  - Support: `frontend-design` or `systematic-debugging`
+- Performance and optimization
+  - Primary: `performance-profiling`
+  - Support: domain skill plus `nextjs-react-expert`, `nodejs-best-practices`, or `web-design-guidelines`
+- Security review
+  - Primary: `vulnerability-scanner`
+  - Support: `red-team-tactics`, `systematic-debugging`, domain skill
+- SEO and content discoverability
+  - Primary: `seo-fundamentals`
+  - Support: `frontend-design`, `web-design-guidelines`, `internal-comms`
+- Brand, visual assets, and static art
+  - Primary: `brand-guidelines`, `canvas-design`, or `theme-factory`
+  - Support: `frontend-design`, `algorithmic-art`
+- Document work
+  - Primary: `docx`, `pptx`, `xlsx`, or `pdf`
+  - Support: `doc-coauthoring`, `internal-comms`, `brand-guidelines`
+- Internal communication artifacts
+  - Primary: `internal-comms`
+  - Support: `brand-guidelines`, `docx`, `pptx`, `canvas-design`
+- MCP or tool integration
+  - Primary: `mcp-builder`
+  - Support: `architecture`, `api-patterns`, `python-patterns`, `nodejs-best-practices`
+- Skill or workflow authoring
+  - Primary: `skill-creator`
+  - Support: `workspace-operating-system`, `plan-writing`
+
+## Intent-First Rules
+
+- If the hardest part is deciding what to build, start with planning or architecture.
+- If the hardest part is making something real, start with the implementation skill.
+- If the hardest part is uncertainty or failure, start with debugging or testing.
+- If the task spans multiple domains, choose one primary skill and only then add support skills.
