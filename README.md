@@ -33,6 +33,14 @@ That skill is the routing and execution layer for the entire bundle. It tells an
 - `spec/`, `template/`, `.claude-plugin/`
   - Preserved from `skills-main` for ecosystem compatibility
 
+## Security And Ownership Hardening
+
+- The bundle now ships with one local-first default profile.
+- `.agent/mcp_config.json` is intentionally empty, so no external MCP server is enabled by default.
+- Stale ownership metadata and broken `./skills/...` marketplace paths were removed from `.claude-plugin/marketplace.json`.
+- Restrictive office-document skills were removed from the public bundle so the repository stays clean to redistribute and review.
+- Runtime side effects such as preview PID/log files are now ignored by git.
+
 ## Upgraded Core Layer
 
 The repository now includes an explicit operating layer:
@@ -56,6 +64,11 @@ The repository now includes an explicit operating layer:
   - `.agent/skills/frontend-design`
   - `.agent/skills/mcp-builder`
   - `.agent/skills/webapp-testing`
+- Restrictive-license office skills were removed during hardening:
+  - `.agent/skills/docx`
+  - `.agent/skills/pdf`
+  - `.agent/skills/pptx`
+  - `.agent/skills/xlsx`
 
 ## Design Principles
 

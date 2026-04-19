@@ -106,14 +106,13 @@ Use $workspace-operating-system to route this bug, then use the right debugging 
 Use $workspace-operating-system to choose the right review stack, then review this code with a risk-first mindset.
 ```
 
-### 5. Task tai lieu hoac file van phong
+### 5. Task tai lieu, brief, hoac noi dung can trinh bay ro
 
-Goi thang skill chuyen loai file:
+Goi theo huong viet va dieu phoi noi dung:
 
-- `$docx`
-- `$pptx`
-- `$xlsx`
-- `$pdf`
+- `$doc-coauthoring`
+- `$internal-comms`
+- Them `$brand-guidelines` neu can chuan hoa giong thuong hieu
 
 ## Cau Truc Can Biet
 
@@ -183,6 +182,8 @@ python .agent/skills/workspace-operating-system/scripts/build_skill_catalog.py
 - Bo nay da dung duoc ngay.
 - Bay gio chi con mot cay skill chuan la `.agent/skills/`.
 - Repo nay da duoc gop that su, khong con hai thu vien skill song song nua.
+- Mac dinh repo nay la local-first: khong bat san MCP server ben ngoai.
+- 4 skill file van phong co license han che da duoc go bo khoi ban public cua bundle.
 
 ## Cau Mo Dau Tot Nhat
 

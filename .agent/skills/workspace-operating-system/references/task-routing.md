@@ -43,12 +43,12 @@ Use this file first. It is the fastest way to map a request shape to the right s
 - Brand, visual assets, and static art
   - Primary: `brand-guidelines`, `canvas-design`, or `theme-factory`
   - Support: `frontend-design`, `algorithmic-art`
-- Document work
-  - Primary: `docx`, `pptx`, `xlsx`, or `pdf`
-  - Support: `doc-coauthoring`, `internal-comms`, `brand-guidelines`
+- Document and communication work
+  - Primary: `doc-coauthoring` or `internal-comms`
+  - Support: `brand-guidelines`, `canvas-design`
 - Internal communication artifacts
   - Primary: `internal-comms`
-  - Support: `brand-guidelines`, `docx`, `pptx`, `canvas-design`
+  - Support: `brand-guidelines`, `doc-coauthoring`, `canvas-design`
 - MCP or tool integration
   - Primary: `mcp-builder`
   - Support: `architecture`, `api-patterns`, `python-patterns`, `nodejs-best-practices`

@@ -27,7 +27,9 @@ Read only when needed:
 
 - Start narrow. Load the fewest skills that can reliably solve the task.
 - Prefer one primary skill and only add supporting skills when there is clear value.
+- Default to local-first execution. Do not assume external MCP servers, cloud APIs, or provider-specific tooling are enabled unless the user or repo explicitly configures them.
 - Preserve existing product patterns before introducing a new visual, architectural, or workflow direction.
+- Treat licensing, ownership, and privacy as part of correctness. If a file or asset is restrictive or unclear for public reuse, isolate it or remove it instead of shipping ambiguity.
 - Convert vague requests into a concrete execution path quickly; ask only when the missing detail changes the outcome materially.
 - Move from discovery to action to validation. Do not stop at analysis for executable tasks.
 
@@ -55,7 +57,7 @@ Read only when needed:
   - implementation heavy -> domain skill such as `app-builder`, `api-patterns`, `frontend-design`, or `database-design`
   - failing behavior -> `systematic-debugging` plus the relevant domain skill
   - validation gap -> `testing-patterns`, `webapp-testing`, `lint-and-validate`, or `performance-profiling`
-- For document and artifact work, prefer the dedicated document skills over ad hoc scripts.
+- For document and communication work, prefer `doc-coauthoring` or `internal-comms` plus brand and design support rather than opaque one-off scripts.
 
 ## Composition Rules
 
@@ -71,6 +73,7 @@ Read only when needed:
 - Review request: prioritize risks, regressions, and missing validation over style commentary
 - UI request: clarify direction, preserve usability, and avoid generic output
 - Infrastructure or deployment request: favor explicit validation and rollback awareness
+- Repository hardening request: audit -> remove restricted material -> neutralize external defaults -> verify -> document
 
 ## Relationship To Other Skills
 

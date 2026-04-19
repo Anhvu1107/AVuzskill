@@ -15,6 +15,13 @@ Apply this finish standard to all meaningful work in this repository.
 - Avoid half-finished implementation when the task is executable end-to-end.
 - Keep communication concise, clear, and honest about uncertainty.
 
+## Safety And Ownership Gate
+
+- Prefer local-first defaults. Nothing should auto-connect to outside services unless the user or repo explicitly opts in.
+- Remove or isolate proprietary, restrictive-license, or ownership-ambiguous material before treating the bundle as shareable.
+- Do not ship personal emails, tokens, API keys, or stale third-party ownership metadata in public-facing files.
+- Call out any script that writes outside the repo, opens a browser, or depends on machine-specific state.
+
 ## Before Finishing
 
 - Verify the most important behavior you changed.

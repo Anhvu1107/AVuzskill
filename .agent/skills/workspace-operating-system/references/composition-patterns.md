@@ -62,13 +62,14 @@ Use when behavior is failing and root cause is not yet obvious.
 
 Use for authentication, exposed APIs, secrets handling, or risky integrations.
 
-### Document Production
+### Document And Messaging
 
-- one of `docx`, `pptx`, `xlsx`, `pdf`
+- `doc-coauthoring`
+- `internal-comms`
 - `brand-guidelines`
-- `internal-comms` when messaging quality matters
+- `canvas-design` when visual polish matters
 
-Use for business documents, slide decks, spreadsheets, forms, and polished artifacts.
+Use for written deliverables, stakeholder-facing documents, briefs, and polished communication artifacts.
 
 ### Skill Bundle Maintenance
 

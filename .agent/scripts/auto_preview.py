@@ -48,6 +48,21 @@ def get_start_command(root):
         return ["npm", "start"]
     return None
 
+def normalize_command(cmd):
+    if not cmd or os.name != "nt":
+        return cmd
+
+    windows_bins = {
+        "npm": "npm.cmd",
+        "pnpm": "pnpm.cmd",
+        "yarn": "yarn.cmd",
+        "bun": "bun.cmd",
+    }
+    first = cmd[0].lower()
+    if first in windows_bins:
+        return [windows_bins[first], *cmd[1:]]
+    return cmd
+
 def start_server(port=3000):
     if PID_FILE.exists():
         try:
@@ -59,7 +74,7 @@ def start_server(port=3000):
             pass # Invalid PID file
 
     root = get_project_root()
-    cmd = get_start_command(root)
+    cmd = normalize_command(get_start_command(root))
     
     if not cmd:
         print("❌ No 'dev' or 'start' script found in package.json")
@@ -78,7 +93,7 @@ def start_server(port=3000):
             stdout=log,
             stderr=log,
             env=env,
-            shell=True # Required for npm on windows often, or consistent path handling
+            shell=False
         )
     
     PID_FILE.write_text(str(process.pid))

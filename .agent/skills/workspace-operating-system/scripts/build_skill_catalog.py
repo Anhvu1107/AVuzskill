@@ -25,7 +25,6 @@ CATEGORY_MAP = {
         "plan-writing",
         "skill-creator",
         "documentation-templates",
-        "skillAVuz",
     ],
     "Architecture And Delivery": [
         "app-builder",
@@ -68,10 +67,6 @@ CATEGORY_MAP = {
         "red-team-tactics",
     ],
     "Documents And Artifacts": [
-        "docx",
-        "pptx",
-        "xlsx",
-        "pdf",
         "doc-coauthoring",
         "internal-comms",
         "slack-gif-creator",
