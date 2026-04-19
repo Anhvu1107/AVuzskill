@@ -1,58 +1,58 @@
-# Hướng Dẫn Sử Dụng
+# Huong Dan Su Dung
 
-File này là điểm vào nhanh để dùng bộ `agent-skills-unified` mà không cần đọc toàn bộ repo.
+File nay la diem vao nhanh de dung bo `agent-skills-unified` ma khong can doc toan bo repo.
 
-## Mục Tiêu
+## Muc Tieu
 
-Bộ này được làm để cả người và AI khác có thể vào repo, hiểu nên đọc gì trước, chọn đúng skill, làm đúng thứ tự, và tự kiểm tra chất lượng trước khi kết thúc.
+Bo nay duoc lam de ca nguoi va AI khac co the vao repo, hieu nen doc gi truoc, chon dung skill, lam dung thu tu, va tu kiem tra chat luong truoc khi ket thuc.
 
-## Cách Dùng Nhanh Nhất
+## Cach Dung Nhanh Nhat
 
-Nếu không chắc nên dùng skill nào, hãy bắt đầu bằng:
+Neu khong chac nen dung skill nao, hay bat dau bang:
 
 ```text
 Use $workspace-operating-system to decide the right skill stack for this task.
 ```
 
-Đây là skill trung tâm. Nó giúp:
+Day la skill trung tam. No giup:
 
-- phân loại task
-- chọn skill chính và skill phụ
-- quyết định thứ tự làm việc
-- nhắc AI phải verify trước khi chốt
+- phan loai task
+- chon skill chinh va skill phu
+- quyet dinh thu tu lam viec
+- nhac AI phai verify truoc khi chot
 
-## Khi Nào Dùng Skill Trung Tâm
+## Khi Nao Dung Skill Trung Tam
 
-Hãy bắt đầu bằng `$workspace-operating-system` khi:
+Hay bat dau bang `$workspace-operating-system` khi:
 
-- task còn mơ hồ
-- task lớn hoặc nhiều bước
-- task đụng nhiều domain cùng lúc
-- bạn muốn AI tự chọn quy trình làm việc tốt nhất
-- bạn muốn AI giải thích vì sao nó chọn skill đó
+- task con mo ho
+- task lon hoac nhieu buoc
+- task dung nhieu domain cung luc
+- ban muon AI tu chon quy trinh lam viec tot nhat
+- ban muon AI giai thich vi sao no chon skill do
 
-## Khi Nào Gọi Thẳng Skill Chuyên Biệt
+## Khi Nao Goi Thang Skill Chuyen Biet
 
-Gọi trực tiếp skill khi bạn đã biết rõ việc cần làm.
+Goi truc tiep skill khi ban da biet ro viec can lam.
 
-Ví dụ:
+Vi du:
 
 - UI, landing page, component:
 ```text
 Use $frontend-design to redesign this page and keep the UX clear.
 ```
 
-- test trình duyệt, kiểm tra flow web:
+- test trinh duyet, kiem tra flow web:
 ```text
 Use $webapp-testing to inspect the app and verify the main user flow.
 ```
 
-- tạo MCP server:
+- tao MCP server:
 ```text
 Use $mcp-builder to design and implement an MCP server for this API.
 ```
 
-- thiết kế API:
+- thiet ke API:
 ```text
 Use $api-patterns to design this endpoint and response format.
 ```
@@ -72,17 +72,17 @@ Use $systematic-debugging to find the root cause of this issue.
 Use $code-review-checklist to review these changes for bugs and risks.
 ```
 
-## Quy Tắc Thực Chiến
+## Quy Tac Thuc Chien
 
-1. Không chắc thì bắt đầu bằng `$workspace-operating-system`.
-2. Chắc domain rồi thì gọi thẳng skill chính.
-3. Task lớn thì để AI ghép nhiều skill theo thứ tự.
-4. Task code thì luôn yêu cầu verify hoặc test sau khi sửa.
-5. Task review thì ưu tiên bug, regression, missing test trước phần style.
+1. Khong chac thi bat dau bang `$workspace-operating-system`.
+2. Chac domain roi thi goi thang skill chinh.
+3. Task lon thi de AI ghep nhieu skill theo thu tu.
+4. Task code thi luon yeu cau verify hoac test sau khi sua.
+5. Task review thi uu tien bug, regression, missing test truoc phan style.
 
-## Quy Trình Khuyên Dùng
+## Quy Trinh Khuyen Dung
 
-### 1. Task mới hoặc nhiều domain
+### 1. Task moi hoac nhieu domain
 
 ```text
 Use $workspace-operating-system to choose the right skills and execution order for building this feature.
@@ -106,35 +106,37 @@ Use $workspace-operating-system to route this bug, then use the right debugging 
 Use $workspace-operating-system to choose the right review stack, then review this code with a risk-first mindset.
 ```
 
-### 5. Task tài liệu hoặc file văn phòng
+### 5. Task tai lieu hoac file van phong
 
-Gọi thẳng skill chuyên loại file:
+Goi thang skill chuyen loai file:
 
 - `$docx`
 - `$pptx`
 - `$xlsx`
 - `$pdf`
 
-## Cấu Trúc Cần Biết
+## Cau Truc Can Biet
 
-- `skills/`
-  - thư viện skill chính
-- `.agent/`
-  - phần runtime, workflows, agents và cấu hình hỗ trợ
-- `skills/workspace-operating-system/`
-  - skill trung tâm
-- `skills/workspace-operating-system/references/task-routing.md`
-  - map nhanh từ loại task sang skill phù hợp
-- `skills/workspace-operating-system/references/composition-patterns.md`
-  - cách ghép nhiều skill với nhau
-- `skills/workspace-operating-system/references/quality-bar.md`
-  - chuẩn tối thiểu trước khi kết thúc task
-- `skills/workspace-operating-system/references/skill-catalog.md`
-  - danh sách đầy đủ các skill hiện có
+- `.agent/skills/`
+  - thu vien skill chinh va la cay skill chuan duy nhat
+- `.agent/agents/`
+  - chuyen gia theo vai tro
+- `.agent/workflows/`
+  - workflow dieu phoi
+- `.agent/skills/workspace-operating-system/`
+  - skill trung tam
+- `.agent/skills/workspace-operating-system/references/task-routing.md`
+  - map nhanh tu loai task sang skill phu hop
+- `.agent/skills/workspace-operating-system/references/composition-patterns.md`
+  - cach ghep nhieu skill voi nhau
+- `.agent/skills/workspace-operating-system/references/quality-bar.md`
+  - chuan toi thieu truoc khi ket thuc task
+- `.agent/skills/workspace-operating-system/references/skill-catalog.md`
+  - danh sach day du cac skill hien co
 
-## Prompt Mẫu Có Thể Copy Ngay
+## Prompt Mau Co The Copy Ngay
 
-### Prompt tổng quát
+### Prompt tong quat
 
 ```text
 Use $workspace-operating-system to understand this request, pick the minimum effective skill stack, do the work, and verify the result before finishing.
@@ -146,45 +148,45 @@ Use $workspace-operating-system to understand this request, pick the minimum eff
 Use $workspace-operating-system to build this feature end-to-end, including planning, implementation, and verification.
 ```
 
-### Prompt sửa bug
+### Prompt sua bug
 
 ```text
 Use $workspace-operating-system to route this issue, identify the root cause, patch it, and verify the fix.
 ```
 
-### Prompt làm UI
+### Prompt lam UI
 
 ```text
 Use $frontend-design to improve this UI with a stronger visual direction and better UX clarity.
 ```
 
-### Prompt kiểm tra web
+### Prompt kiem tra web
 
 ```text
 Use $webapp-testing to inspect the app, discover selectors, and verify the key user journeys.
 ```
 
-## Cách Nâng Cấp Sau Này
+## Cach Nang Cap Sau Nay
 
-Nếu bạn thêm hoặc sửa skill:
+Neu ban them hoac sua skill:
 
-1. cập nhật `SKILL.md` của skill đó
-2. nếu skill lõi thì thêm `agents/openai.yaml`
-3. chạy lại script build catalog:
+1. cap nhat `SKILL.md` cua skill do
+2. neu skill loi thi them `agents/openai.yaml`
+3. chay lai script build catalog:
 
 ```text
-python skills/workspace-operating-system/scripts/build_skill_catalog.py
+python .agent/skills/workspace-operating-system/scripts/build_skill_catalog.py
 ```
 
-## Ghi Chú Quan Trọng
+## Ghi Chu Quan Trong
 
-- Bộ này đã dùng được ngay.
-- Một số app có thể hiển thị path trùng giữa `.agent/skills` và `skills/` vì `.agent/skills` đang trỏ sang cùng một thư viện.
-- Về logic sử dụng thì không ảnh hưởng.
+- Bo nay da dung duoc ngay.
+- Bay gio chi con mot cay skill chuan la `.agent/skills/`.
+- Repo nay da duoc gop that su, khong con hai thu vien skill song song nua.
 
-## Câu Mở Đầu Tốt Nhất
+## Cau Mo Dau Tot Nhat
 
-Nếu chỉ chọn đúng một câu để bắt đầu, hãy dùng:
+Neu chi chon dung mot cau de bat dau, hay dung:
 
 ```text
 Use $workspace-operating-system to decide what to do first, which skills to load, and how to verify the result.

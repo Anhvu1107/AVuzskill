@@ -1,8 +1,0 @@
-interface:
-  display_name: "MCP Builder"
-  short_description: "Build high-quality MCP servers with strong tool design"
-  brand_color: "#7C3AED"
-  default_prompt: "Use $mcp-builder to design, implement, and validate an MCP server with clear tools, resources, and evaluations."
-
-policy:
-  allow_implicit_invocation: true

@@ -2,7 +2,7 @@
 
 Generated from the current unified skill library.
 
-Total skills: 53
+Total skills: 52
 
 Use this file when the correct skill is unclear and you need exhaustive coverage.
 
@@ -16,7 +16,6 @@ Use this file when the correct skill is unclear and you need exhaustive coverage
 - `plan-writing`: Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when implementing features, refactoring, or any multi-step work.
 - `skill-creator`: Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.
 - `documentation-templates`: Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly documentation.
-- `skillAVuz`: A unified Super-Agent framework combining Antigravity Kit (.agent) principles, Anthropic Claude skills (skills-main), and Core Engine Upgrades (RAG Memory & Sandbox).
 
 ## Architecture And Delivery
 
