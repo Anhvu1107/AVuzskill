@@ -1,144 +1,59 @@
 ---
-description: Test generation and test running command. Creates and executes tests for code.
+description: Test workflow for running the right checks, adding focused tests for changed behavior, investigating failures, and reporting evidence without changing unrelated code.
 ---
 
-# /test - Test Generation and Execution
+# /test - Focused Testing And Verification
 
 $ARGUMENTS
 
----
-
 ## Purpose
 
-This command generates tests, runs existing tests, or checks test coverage.
+Use this workflow when the task is to test, verify, or improve coverage around a specific behavior.
 
----
+## Default Stack
 
-## Sub-commands
+- `testing-patterns`
+- relevant domain skill when needed
+- `verification-before-completion`
 
-```
-/test                - Run all tests
-/test [file/feature] - Generate tests for specific target
-/test coverage       - Show test coverage report
-/test watch          - Run tests in watch mode
-```
+Add `webapp-testing` when browser behavior is part of the proof.
 
----
+## Modes
 
-## Behavior
+- run tests
+- add focused tests for a target behavior
+- investigate failing tests
+- review coverage or missing test areas
 
-### Generate Tests
+## Flow
 
-When asked to test a file or feature:
+1. Identify the test target.
+   - file, feature, bug, flow, or regression area
+2. Choose the right test level.
+   - unit, integration, browser, or build/runtime verification
+3. Follow existing project patterns.
+   - framework, naming, fixtures, mocks
+4. Add or run only the relevant tests first.
+5. Read the real output.
+6. If failures appear, distinguish:
+   - broken test
+   - broken code
+   - stale expectation
+7. Report the evidence clearly.
 
-1. **Analyze the code**
-   - Identify functions and methods
-   - Find edge cases
-   - Detect dependencies to mock
+## Guardrails
 
-2. **Generate test cases**
-   - Happy path tests
-   - Error cases
-   - Edge cases
-   - Integration tests (if needed)
+- Do not generate a broad test suite when the request is narrow.
+- Do not change unrelated product logic while "just adding tests."
+- Do not treat coverage as proof of correctness by itself.
+- Do not say tests pass unless you ran them on the current state.
 
-3. **Write tests**
-   - Use project's test framework (Jest, Vitest, etc.)
-   - Follow existing test patterns
-   - Mock external dependencies
+## Good Output
 
----
+When closing a testing task, include:
 
-## Output Format
-
-### For Test Generation
-
-```markdown
-## 🧪 Tests: [Target]
-
-### Test Plan
-| Test Case | Type | Coverage |
-|-----------|------|----------|
-| Should create user | Unit | Happy path |
-| Should reject invalid email | Unit | Validation |
-| Should handle db error | Unit | Error case |
-
-### Generated Tests
-
-`tests/[file].test.ts`
-
-[Code block with tests]
-
----
-
-Run with: `npm test`
-```
-
-### For Test Execution
-
-```
-🧪 Running tests...
-
-✅ auth.test.ts (5 passed)
-✅ user.test.ts (8 passed)
-❌ order.test.ts (2 passed, 1 failed)
-
-Failed:
-  ✗ should calculate total with discount
-    Expected: 90
-    Received: 100
-
-Total: 15 tests (14 passed, 1 failed)
-```
-
----
-
-## Examples
-
-```
-/test src/services/auth.service.ts
-/test user registration flow
-/test coverage
-/test fix failed tests
-```
-
----
-
-## Test Patterns
-
-### Unit Test Structure
-
-```typescript
-describe('AuthService', () => {
-  describe('login', () => {
-    it('should return token for valid credentials', async () => {
-      // Arrange
-      const credentials = { email: 'test@test.com', password: 'pass123' };
-      
-      // Act
-      const result = await authService.login(credentials);
-      
-      // Assert
-      expect(result.token).toBeDefined();
-    });
-
-    it('should throw for invalid password', async () => {
-      // Arrange
-      const credentials = { email: 'test@test.com', password: 'wrong' };
-      
-      // Act & Assert
-      await expect(authService.login(credentials)).rejects.toThrow('Invalid credentials');
-    });
-  });
-});
-```
-
----
-
-## Key Principles
-
-- **Test behavior not implementation**
-- **One assertion per test** (when practical)
-- **Descriptive test names**
-- **Arrange-Act-Assert pattern**
-- **Mock external dependencies**
+- what was tested
+- what command or method was used
+- pass or fail result
+- new regression coverage added, if any
+- anything still unverified

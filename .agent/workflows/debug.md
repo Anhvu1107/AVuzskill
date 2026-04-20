@@ -1,103 +1,54 @@
 ---
-description: Debugging command. Activates DEBUG mode for systematic problem investigation.
+description: Debug workflow for reproducing issues, isolating root cause, applying the minimum relevant fix, and proving the behavior changed.
 ---
 
-# /debug - Systematic Problem Investigation
+# /debug - Root-Cause Debugging
 
 $ARGUMENTS
 
----
-
 ## Purpose
 
-This command activates DEBUG mode for systematic investigation of issues, errors, or unexpected behavior.
+Use this workflow when the job is to understand a failure before changing code.
 
----
+## Default Stack
 
-## Behavior
+- `systematic-debugging`
+- relevant domain skill for the failing area
+- `verification-before-completion`
 
-When `/debug` is triggered:
+## Flow
 
-1. **Gather information**
-   - Error message
-   - Reproduction steps
-   - Expected vs actual behavior
-   - Recent changes
+1. Define the symptom.
+   - what is failing
+   - expected vs actual behavior
+2. Reproduce it.
+   - steps, environment, frequency
+3. Isolate the cause.
+   - scope the failing area
+   - check recent changes, logs, inputs, and state transitions
+4. Prove the root cause.
+   - do not stop at a plausible theory
+5. Apply the minimum relevant fix.
+6. Verify the symptom is gone and nearby behavior still works.
+7. Report:
+   - root cause
+   - fix
+   - verification
+   - prevention note
 
-2. **Form hypotheses**
-   - List possible causes
-   - Order by likelihood
+## Guardrails
 
-3. **Investigate systematically**
-   - Test each hypothesis
-   - Check logs, data flow
-   - Use elimination method
+- Do not fix blindly before reproduction or evidence.
+- Do not make unrelated UI, logic, or refactor changes while debugging.
+- Do not claim success until the old symptom is disproven by fresh evidence.
+- If the issue cannot be reproduced, say that clearly and shift to evidence gathering instead of guessing.
 
-4. **Fix and prevent**
-   - Apply fix
-   - Explain root cause
-   - Add prevention measures
+## Good Output
 
----
+A strong debug result includes:
 
-## Output Format
-
-```markdown
-## 🔍 Debug: [Issue]
-
-### 1. Symptom
-[What's happening]
-
-### 2. Information Gathered
-- Error: `[error message]`
-- File: `[filepath]`
-- Line: [line number]
-
-### 3. Hypotheses
-1. ❓ [Most likely cause]
-2. ❓ [Second possibility]
-3. ❓ [Less likely cause]
-
-### 4. Investigation
-
-**Testing hypothesis 1:**
-[What I checked] → [Result]
-
-**Testing hypothesis 2:**
-[What I checked] → [Result]
-
-### 5. Root Cause
-🎯 **[Explanation of why this happened]**
-
-### 6. Fix
-```[language]
-// Before
-[broken code]
-
-// After
-[fixed code]
-```
-
-### 7. Prevention
-🛡️ [How to prevent this in the future]
-```
-
----
-
-## Examples
-
-```
-/debug login not working
-/debug API returns 500
-/debug form doesn't submit
-/debug data not saving
-```
-
----
-
-## Key Principles
-
-- **Ask before assuming** - get full error context
-- **Test hypotheses** - don't guess randomly
-- **Explain why** - not just what to fix
-- **Prevent recurrence** - add tests, validation
+- reproduction path
+- root-cause explanation
+- minimal fix summary
+- exact verification performed
+- residual risk if any
