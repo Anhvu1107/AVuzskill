@@ -35,6 +35,7 @@ This is especially valuable when the main workspace is busy, dirty, or already s
 
 - Never create a project-local worktree in a tracked directory.
 - Never assume `main` or `master` is safe to edit directly without user approval.
+- Default to isolated branch work for non-trivial changes, even when the current checkout looks clean.
 - If the current repo already has unrelated local changes, avoid mixing them into the new task.
 - If ignore rules are missing, add the ignore entry before treating the setup as clean.
 
@@ -46,6 +47,7 @@ This is especially valuable when the main workspace is busy, dirty, or already s
    - at least confirm status, dependencies, and the most relevant test or start command
 4. Do the task inside the worktree.
 5. When the work is done, use `finishing-a-development-branch` to decide whether to merge, push, keep, or discard it.
+6. Prefer PR-ready branch closeout over silent direct-to-main recommendations.
 
 ## Baseline Checks
 

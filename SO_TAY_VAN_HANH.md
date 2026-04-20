@@ -17,6 +17,45 @@ No la mot he van hanh cho AI agent:
 - biet cach verify truoc khi chot
 - biet cach nang cap bundle ma khong lam no rot vao tinh trang tap nham, mo ho, hoac kho trigger
 
+### 1.1 Operating Charter
+
+Bo nay duoc huan luyen de van hanh nhu mot team senior:
+
+- frame dung bai toan
+- tach scope va risk
+- chon architecture va workflow phu hop
+- lam tren branch/worktree khi can
+- verify bang bang chung
+- handoff ro rang cho nguoi hoac AI khac
+
+Neu gap y tuong qua lon hoac tham vong, khong duoc gia vo nhu da san sang production.
+
+Phai tach:
+
+- concept
+- prototype
+- simulator
+- production
+- verification va operations
+
+### 1.2 Boundary An Toan
+
+Bo nay khong duoc dung de ho tro:
+
+- weapon guidance, targeting, kill-chain
+- malware, credential theft, unauthorized access, exfiltration
+- giam sat con nguoi khong dong y
+- loi hua trading "luon thang"
+- fake verification, fake benchmark, fake readiness
+
+Neu request cham vao vung nay, phai pivot sang huong hop phap va an toan hon:
+
+- simulation
+- telemetry
+- verification harness
+- safety analysis
+- risk dashboard
+
 ## 2. Tu Duy Nen Dung
 
 Hay nhin bundle nay theo 4 lop:
@@ -82,15 +121,18 @@ Day la trinh tu de mot AI moi vao repo va van hanh dung:
 2. Doc:
    - `.agent/skills/workspace-operating-system/references/task-routing.md`
    - `.agent/skills/workspace-operating-system/references/quality-bar.md`
-3. Neu task nhieu domain:
+   - `.agent/skills/workspace-operating-system/references/operating-charter.md`
+3. Neu task la code, infra, release, hoac deployment:
+   - doc them `branch-and-release-policy.md`
+4. Neu task nhieu domain:
    - doc them `composition-patterns.md`
-4. Neu chua chac skill nao:
+5. Neu chua chac skill nao:
    - doc `skill-catalog.md`
-5. Sau do moi doc `SKILL.md` cua skill chinh
-6. Chi doc `references/` khi thuc su can
-7. Neu task can role chuyen biet:
+6. Sau do moi doc `SKILL.md` cua skill chinh
+7. Chi doc `references/` khi thuc su can
+8. Neu task can role chuyen biet:
    - doc agent phu hop trong `.agent/agents/`
-8. Neu task theo kieu command/process co san:
+9. Neu task theo kieu command/process co san:
    - doc workflow phu hop trong `.agent/workflows/`
 
 Nguyen tac:
@@ -98,6 +140,7 @@ Nguyen tac:
 - di tu tong quan -> route -> skill chinh -> reference sau
 - khong doc lan tung folder mot cach mu quang
 - khong load het context neu task khong can
+- task code nghiem tuc thi luon nghi theo branch/review/release path
 
 ## 5. Entry Point Chuan
 
@@ -547,6 +590,7 @@ Nguyen tac dang dung:
 - khong bat san MCP ngoai
 - khong ship file nhay cam
 - khong import raw launcher/app shell tu bundle ngoai vao `.agent`
+- khong de workflow khuyen khich direct-to-main khi repo chua cho phep
 - khi go bundle ngoai vao:
   - audit
   - loc
@@ -576,7 +620,10 @@ git diff --check
    - `SO_TAY_VAN_HANH.md`
    neu thay doi tac dong den cach dung
 6. commit ro nghia
-7. push `main`
+7. push branch dang lam viec
+8. mo hoac chuan bi PR
+9. merge vao `dev`/`test`/staging theo flow cua repo neu co
+10. chi merge vao `main`/`master` sau khi da qua gate verify va duoc phe duyet
 
 ## 21. Dau Hieu He Dang Xau Di
 

@@ -10,6 +10,8 @@ For the full operating manual, read `SO_TAY_VAN_HANH.md`.
 
 Make the workspace self-describing enough that an AI can enter cold, choose the right skill set, sequence work correctly, and finish with a consistent quality bar.
 
+The goal is not just "more capable prompts." The goal is a repo that behaves like a disciplined senior engineering team: branch-first, verification-first, and explicit about safety, ownership, and release paths.
+
 ## Primary Entry Point
 
 Start with `$workspace-operating-system`.
@@ -57,6 +59,10 @@ The repository now includes an explicit operating layer:
   - recommended multi-skill bundles for common request types
 - `.agent/skills/workspace-operating-system/references/quality-bar.md`
   - universal finish criteria for all serious work
+- `.agent/skills/workspace-operating-system/references/operating-charter.md`
+  - senior-team operating model, ambitious-idea handling, and safety boundaries
+- `.agent/skills/workspace-operating-system/references/branch-and-release-policy.md`
+  - branch-first delivery, PR discipline, and promotion rules
 - `.agent/skills/workspace-operating-system/references/skill-catalog.md`
   - full inventory of available skills
 
@@ -89,3 +95,6 @@ The repository now includes an explicit operating layer:
 - Favor execution, validation, and clarity over vague advice.
 - Keep the merged repo structurally honest: one skill tree, not two mirrored trees.
 - Prefer rewritten, repo-aligned workflows over wholesale imports from external bundles.
+- Prefer branch-first delivery over direct-to-main shortcuts.
+- Turn ambitious ideas into staged engineering programs instead of fantasy promises.
+- Keep the bundle powerful, but never by crossing into weapons, malware, privacy abuse, or fake certainty.

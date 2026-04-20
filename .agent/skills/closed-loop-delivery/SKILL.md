@@ -33,6 +33,7 @@ If acceptance criteria are missing, propose a concrete version and proceed unles
 
 1. Define the acceptance criteria.
 2. Isolate the work if needed.
+   - for meaningful code changes, prefer a branch or worktree
 3. Implement the minimum change that can satisfy the criteria.
 4. Run focused verification locally.
 5. Resolve relevant review feedback or verification failures.
@@ -46,6 +47,7 @@ Pause for user confirmation before:
 - production or high-risk deployment
 - destructive data operations
 - force-push, history rewrite, or irreversible cleanup
+- direct push or merge to a protected branch
 - actions requiring secrets, billing, or permission assumptions
 
 ## Evidence Standard
@@ -55,6 +57,7 @@ Completion should include:
 - acceptance criteria checklist with pass or fail status
 - commands or checks run
 - runtime evidence when applicable
+- branch or promotion status when code changed
 - unresolved risk or blockers
 
 If a criterion is not proven, mark it clearly instead of burying it in the prose.

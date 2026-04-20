@@ -64,7 +64,7 @@ Use this file when the correct skill is unclear and you need exhaustive coverage
 - `performance-profiling`: Performance profiling principles. Measurement, analysis, and optimization techniques.
 - `systematic-debugging`: 4-phase systematic debugging methodology with root cause analysis and evidence-based verification. Use when debugging complex issues.
 - `vulnerability-scanner`: Advanced vulnerability analysis principles. OWASP 2025, Supply Chain Security, attack surface mapping, risk prioritization.
-- `red-team-tactics`: Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting.
+- `red-team-tactics`: Authorized adversary-simulation and detection-engineering patterns for defensive security work. Use for ATT&CK-based coverage mapping, purple-team planning, tabletop exercises, and detection-gap analysis. Do not use this skill to provide exploit instructions, malware tactics, or unauthorized intrusion guidance.
 
 ## Documents And Artifacts
 

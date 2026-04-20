@@ -32,7 +32,8 @@ This skill helps an agent close the loop cleanly instead of leaving a half-finis
 Offer concise, explicit choices such as:
 
 - push and open or prepare a PR
-- merge locally
+- merge into `dev`, `test`, or the agreed integration branch
+- merge locally only if that matches the repo workflow
 - keep the branch as-is for later
 - discard the branch after confirmation
 
@@ -41,6 +42,7 @@ Offer concise, explicit choices such as:
 - Never delete a branch or worktree without explicit confirmation.
 - Never force-push or rewrite history unless the user asked for it.
 - Never imply readiness if verification is incomplete.
+- Never recommend direct merge or push to `main` or `master` unless the repo policy clearly allows it and the user approves.
 - If the branch contains unrelated changes, call that out before recommending cleanup or merge.
 
 ## Recommended Report

@@ -1,59 +1,38 @@
 ---
-description: Create new application command. Triggers App Builder skill and starts interactive dialogue with user.
+description: Create a new application or product increment from idea to initial verified slice. Use for net-new builds that need discovery, architecture, implementation, and validation.
 ---
 
-# /create - Create Application
+# /create - New Product Or App
 
 $ARGUMENTS
 
----
+## Purpose
 
-## Task
+Turn a rough idea into a credible first delivery path.
 
-This command starts a new application creation process.
+## Flow
 
-### Steps:
+1. Frame the request.
+   - who it is for
+   - what outcome matters
+   - what must be true in the first version
+2. Choose the build path.
+   - use `app-builder` for shape and stack
+   - add `architecture` if the system boundary is unclear
+   - add domain skills only when they clearly matter
+3. Define the first delivery slice.
+   - not the whole fantasy
+   - the smallest useful version that proves the direction
+4. Isolate the work.
+   - create a branch or worktree for non-trivial implementation
+5. Implement the first slice.
+6. Verify the slice locally with the most relevant checks.
+7. Report:
+   - what exists now
+   - what was proven
+   - what the next slice should be
 
-1. **Request Analysis**
-   - Understand what the user wants
-   - If information is missing, use `conversation-manager` skill to ask
+## Notes
 
-2. **Project Planning**
-   - Use `project-planner` agent for task breakdown
-   - Determine tech stack
-   - Plan file structure
-   - Create plan file and proceed to building
-
-3. **Application Building (After Approval)**
-   - Orchestrate with `app-builder` skill
-   - Coordinate expert agents:
-     - `database-architect` → Schema
-     - `backend-specialist` → API
-     - `frontend-specialist` → UI
-
-4. **Preview**
-   - Start with `auto_preview.py` when complete
-   - Present URL to user
-
----
-
-## Usage Examples
-
-```
-/create blog site
-/create e-commerce app with product listing and cart
-/create todo app
-/create Instagram clone
-/create crm system with customer management
-```
-
----
-
-## Before Starting
-
-If request is unclear, ask these questions:
-- What type of application?
-- What are the basic features?
-- Who will use it?
-
-Use defaults, add details later.
+- Ambitious ideas should become staged programs, not one-shot promises.
+- Prefer a vertical slice that proves value over scaffolding everything at once.

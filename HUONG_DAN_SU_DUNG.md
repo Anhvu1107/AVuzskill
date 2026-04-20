@@ -20,6 +20,8 @@ Day la skill trung tam. No giup:
 - chon skill chinh va skill phu
 - quyet dinh thu tu lam viec
 - nhac AI phai verify truoc khi chot
+- ep task code di theo branch-first, review-first, release-aware flow
+- giu ranh gioi an toan va hop phap cho nhung bai toan nhay cam
 
 ## Khi Nao Dung Skill Trung Tam
 
@@ -30,6 +32,29 @@ Hay bat dau bang `$workspace-operating-system` khi:
 - task dung nhieu domain cung luc
 - ban muon AI tu chon quy trinh lam viec tot nhat
 - ban muon AI giai thich vi sao no chon skill do
+
+## Neu Y Tuong Rat Lon Hoac Rat Xa
+
+Van dung duoc, nhung hay de AI xu ly theo cach senior:
+
+- tach concept, prototype, simulator, va production
+- viet requirement, risk register, va verification plan truoc
+- build theo tung slice co the kiem chung
+
+Bo nay co the giup rat manh cho:
+
+- mission software
+- telemetry
+- digital twin
+- simulation
+- control-plane va observability
+
+Nhung khong duoc dung de ho tro:
+
+- vu khi, ten lua, guidance targeting
+- malware, doc du lieu trai phep, exfiltration
+- giam sat con nguoi khong dong y
+- loi hua "choi chung khoan luon thang"
 
 ## Khi Nao Goi Thang Skill Chuyen Biet
 
@@ -96,6 +121,9 @@ Use $code-review-checklist to review these changes for bugs and risks.
 5. Task review thi uu tien bug, regression, missing test truoc phan style.
 6. Neu task da co plan, dung `$executing-plans` thay vi de AI vua nghi vua che lai ke hoach.
 7. Neu task can "done that su", dung them `$verification-before-completion` hoac goi thang `$closed-loop-delivery`.
+8. Task code khong nho thi nen lam tren branch hoac worktree rieng.
+9. Truoc khi merge hay deploy, AI phai noi ro no dang o branch nao, da verify gi, va de xuat next step nao.
+10. Task nguy co cao thi AI phai noi ro dau la prototype, dau la simulation, dau la production claim.
 
 ## Quy Trinh Khuyen Dung
 
@@ -165,6 +193,10 @@ Goi theo huong viet va dieu phoi noi dung:
   - cach ghep nhieu skill voi nhau
 - `.agent/skills/workspace-operating-system/references/quality-bar.md`
   - chuan toi thieu truoc khi ket thuc task
+- `.agent/skills/workspace-operating-system/references/operating-charter.md`
+  - operating model kieu team senior, boundary cho bai toan tham vong va nhay cam
+- `.agent/skills/workspace-operating-system/references/branch-and-release-policy.md`
+  - branch-first, PR-first, va flow merge/promotion
 - `.agent/skills/workspace-operating-system/references/skill-catalog.md`
   - danh sach day du cac skill hien co
 
@@ -180,6 +212,12 @@ Use $workspace-operating-system to understand this request, pick the minimum eff
 
 ```text
 Use $workspace-operating-system to build this feature end-to-end, including planning, implementation, and verification.
+```
+
+### Prompt y tuong lon
+
+```text
+Use $workspace-operating-system to turn this ambitious idea into a real engineering program with requirements, architecture, prototype scope, verification strategy, and staged delivery.
 ```
 
 ### Prompt sua bug
@@ -218,6 +256,7 @@ python .agent/skills/workspace-operating-system/scripts/build_skill_catalog.py
 - Bay gio chi con mot cay skill chuan la `.agent/skills/`.
 - Repo nay da duoc gop that su, khong con hai thu vien skill song song nua.
 - Mac dinh repo nay la local-first: khong bat san MCP server ben ngoai.
+- Task code nghiem tuc nen di theo branch/worktree -> verify -> PR/integration -> main.
 - 4 skill file van phong co license han che da duoc go bo khoi ban public cua bundle.
 - Cac workflow moi duoc viet lai theo he Codex hien tai, khong import launcher hay app shell tu bundle la vao cay skill chinh.
 

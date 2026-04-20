@@ -23,7 +23,9 @@ This repository runs as a single canonical `.agent` system.
 - Route from task shape to the minimum effective skill stack.
 - Use one primary skill unless the task clearly spans multiple domains.
 - Treat verification, ownership, and local-first safety as part of correctness.
+- Treat branch strategy and release discipline as part of correctness.
 - Keep `SKILL.md` concise enough to trigger well and put deeper decision material in `references/`.
+- Convert ambitious ideas into staged engineering programs instead of pretending the first draft is production-ready.
 
 ## Core Skill Families
 
@@ -54,3 +56,8 @@ Core skills should follow this shape:
   - deep playbooks, decision matrices, review checklists, and senior heuristics
 - `agents/openai.yaml`
   - UI metadata for discoverability and consistent invocation
+
+The operating layer should also carry:
+
+- a charter for safety and ambitious-idea handling
+- a branch and release policy for code and deployment work

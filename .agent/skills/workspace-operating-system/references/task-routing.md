@@ -7,6 +7,10 @@ Use this file first. It is the fastest way to map a request shape to the right s
 - Broad product or app request
   - Primary: `app-builder`
   - Support: `architecture`, `frontend-design`, `api-patterns`, `database-design`, `deployment-procedures`, `closed-loop-delivery`
+- Ambitious or systems-heavy request
+  - Primary: `architecture`
+  - Support: `app-builder`, `api-patterns`, `database-design`, `closed-loop-delivery`
+  - Notes: start by separating simulator, prototype, and production claims
 - Architecture or system design
   - Primary: `architecture`
   - Support: `app-builder`, `database-design`, `api-patterns`
@@ -78,3 +82,4 @@ Use this file first. It is the fastest way to map a request shape to the right s
 - If the hardest part is uncertainty or failure, start with debugging or testing.
 - If the hardest part is proving the work is truly done, start with `verification-before-completion` or `closed-loop-delivery`.
 - If the task spans multiple domains, choose one primary skill and only then add support skills.
+- If the request touches regulated, safety-critical, or physically grounded systems, define the verification boundary before implementation.

@@ -21,6 +21,14 @@ Apply this finish standard to all meaningful work in this repository.
 - Remove or isolate proprietary, restrictive-license, or ownership-ambiguous material before treating the bundle as shareable.
 - Do not ship personal emails, tokens, API keys, or stale third-party ownership metadata in public-facing files.
 - Call out any script that writes outside the repo, opens a browser, or depends on machine-specific state.
+- Do not position speculative software as production-safe in regulated or high-risk domains without a clear verification boundary.
+- Do not promise impossible outcomes such as guaranteed trading profits or unverified operational safety.
+
+## Branch And Release Gate
+
+- For meaningful code changes, prefer a branch or worktree over direct edits on `main` or `master`.
+- Do not recommend direct protected-branch pushes unless the repository explicitly works that way and the user approves.
+- Make the intended merge or promotion path explicit before calling the work release-ready.
 
 ## Before Finishing
 
@@ -49,3 +57,4 @@ Do not finish if the output is:
 - phrased as complete when the evidence is partial or stale
 - overcomplicated relative to the request
 - missing the main user outcome
+- ready-to-ship in words but still unreviewed, unbranched, or unverified in practice
