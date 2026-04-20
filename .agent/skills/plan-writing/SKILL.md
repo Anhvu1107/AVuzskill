@@ -1,152 +1,86 @@
 ---
 name: plan-writing
-description: Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when implementing features, refactoring, or any multi-step work.
-allowed-tools: Read, Glob, Grep
+description: Use when a task needs a clear execution plan before implementation starts. Apply this skill for multi-step features, meaningful refactors, risky bug fixes, or any work where sequence, scope, ownership, and verification should be made explicit first.
 ---
 
 # Plan Writing
 
-> Source: obra/superpowers
+## Purpose
 
-## Overview
-This skill provides a framework for breaking down work into clear, actionable tasks with verification criteria.
+Write plans that are short enough to execute and precise enough to verify.
 
-## Task Breakdown Principles
+A good plan reduces ambiguity, reveals risk, and makes later execution boring in the best possible way.
 
-### 1. Small, Focused Tasks
-- Each task should take 2-5 minutes
-- One clear outcome per task
-- Independently verifiable
+## Use This Skill When
 
-### 2. Clear Verification
-- How do you know it's done?
-- What can you check/test?
-- What's the expected output?
+- the task spans multiple files or systems
+- order matters
+- the user asked for a plan
+- a bug fix needs a reproducible path, patch, and proof
+- parallel work might help but needs safe boundaries
 
-### 3. Logical Ordering
-- Dependencies identified
-- Parallel work where possible
-- Critical path highlighted
-- **Phase X: Verification is always LAST**
+## Principles
 
-### 4. Dynamic Naming in Project Root
-- Plan files are saved as `{task-slug}.md` in the PROJECT ROOT
-- Name derived from task (e.g., "add auth" → `auth-feature.md`)
-- **NEVER** inside `.claude/`, `docs/`, or temp folders
+- Plan outcomes, not vague activity.
+- Keep the number of steps small.
+- Give every step a proof of completion.
+- Name dependencies and collisions early.
+- Do not pad the plan with obvious filler.
 
-## Planning Principles (NOT Templates!)
+## Strong Plan Shape
 
-> 🔴 **NO fixed templates. Each plan is UNIQUE to the task.**
+1. Goal
+   - one short paragraph on the user outcome
+2. Constraints
+   - technical, product, safety, or branch constraints
+3. Steps
+   - each step should say what changes and how to verify it
+4. Done state
+   - how the user will know the work is actually complete
 
-### Principle 1: Keep It SHORT
+## Step Quality Bar
 
-| ❌ Wrong | ✅ Right |
-|----------|----------|
-| 50 tasks with sub-sub-tasks | 5-10 clear tasks max |
-| Every micro-step listed | Only actionable items |
-| Verbose descriptions | One-line per task |
+Each step should answer:
 
-> **Rule:** If plan is longer than 1 page, it's too long. Simplify.
+- what changes
+- where it changes
+- what could block it
+- how to prove it worked
 
----
+If a step cannot be verified, it is probably too vague.
 
-### Principle 2: Be SPECIFIC, Not Generic
+## Planning Heuristics
 
-| ❌ Wrong | ✅ Right |
-|----------|----------|
-| "Set up project" | "Run `npx create-next-app`" |
-| "Add authentication" | "Install next-auth, create `/api/auth/[...nextauth].ts`" |
-| "Style the UI" | "Add Tailwind classes to `Header.tsx`" |
+- Prefer 3 to 7 strong steps over 20 tiny ones.
+- Break out parallel work only when ownership is disjoint.
+- Put discovery before irreversible edits.
+- Put verification near the step it proves, not only at the end.
+- Keep one explicit final verification step for the whole task.
 
-> **Rule:** Each task should have a clear, verifiable outcome.
+## Good Verification Language
 
----
+- "Run the focused unit test for X"
+- "Open the page and confirm Y state"
+- "Verify the endpoint returns Z"
+- "Confirm the branch is clean except for intended files"
 
-### Principle 3: Dynamic Content Based on Project Type
+## Weak Verification Language
 
-**For NEW PROJECT:**
-- What tech stack? (decide first)
-- What's the MVP? (minimal features)
-- What's the file structure?
+- "make sure it works"
+- "check everything"
+- "verify manually"
+- "test if needed"
 
-**For FEATURE ADDITION:**
-- Which files are affected?
-- What dependencies needed?
-- How to verify it works?
+## Handoff
 
-**For BUG FIX:**
-- What's the root cause?
-- What file/line to change?
-- How to test the fix?
+If the plan will be executed later, note which supporting skill should own the next phase:
 
----
+- `executing-plans`
+- `using-git-worktrees`
+- `parallel-agents`
+- `closed-loop-delivery`
 
-### Principle 4: Scripts Are Project-Specific
+## Related Skills
 
-> 🔴 **DO NOT copy-paste script commands. Choose based on project type.**
-
-| Project Type | Relevant Scripts |
-|--------------|------------------|
-| Frontend/React | `ux_audit.py`, `accessibility_checker.py` |
-| Backend/API | `api_validator.py`, `security_scan.py` |
-| Mobile | `mobile_audit.py` |
-| Database | `schema_validator.py` |
-| Full-stack | Mix of above based on what you touched |
-
-**Wrong:** Adding all scripts to every plan
-**Right:** Only scripts relevant to THIS task
-
----
-
-### Principle 5: Verification is Simple
-
-| ❌ Wrong | ✅ Right |
-|----------|----------|
-| "Verify the component works correctly" | "Run `npm run dev`, click button, see toast" |
-| "Test the API" | "curl localhost:3000/api/users returns 200" |
-| "Check styles" | "Open browser, verify dark mode toggle works" |
-
----
-
-## Plan Structure (Flexible, Not Fixed!)
-
-```
-# [Task Name]
-
-## Goal
-One sentence: What are we building/fixing?
-
-## Tasks
-- [ ] Task 1: [Specific action] → Verify: [How to check]
-- [ ] Task 2: [Specific action] → Verify: [How to check]
-- [ ] Task 3: [Specific action] → Verify: [How to check]
-
-## Done When
-- [ ] [Main success criteria]
-```
-
-> **That's it.** No phases, no sub-sections unless truly needed.
-> Keep it minimal. Add complexity only when required.
-
-## Notes
-[Any important considerations]
-```
-
----
-
-## Best Practices (Quick Reference)
-
-1. **Start with goal** - What are we building/fixing?
-2. **Max 10 tasks** - If more, break into multiple plans
-3. **Each task verifiable** - Clear "done" criteria
-4. **Project-specific** - No copy-paste templates
-5. **Update as you go** - Mark `[x]` when complete
-
----
-
-## When to Use
-
-- New project from scratch
-- Adding a feature
-- Fixing a bug (if complex)
-- Refactoring multiple files
+- `executing-plans` to carry the plan through implementation
+- `verification-before-completion` to enforce evidence at the end

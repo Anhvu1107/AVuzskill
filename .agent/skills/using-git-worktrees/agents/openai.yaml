@@ -1,0 +1,8 @@
+interface:
+  display_name: "Git Worktrees"
+  short_description: "Create isolated git workspaces with a clean baseline"
+  brand_color: "#0F766E"
+  default_prompt: "Use $using-git-worktrees to do this work in a separate branch and isolated worktree."
+
+policy:
+  allow_implicit_invocation: true

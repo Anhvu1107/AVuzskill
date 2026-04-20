@@ -6,8 +6,6 @@ allowed-tools: Read, Glob, Grep
 
 # Systematic Debugging
 
-> Source: obra/superpowers
-
 ## Overview
 This skill provides a structured approach to debugging that prevents random guessing and ensures problems are properly understood before solving.
 

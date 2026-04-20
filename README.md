@@ -24,6 +24,7 @@ That skill is the routing and execution layer for the entire bundle. It tells an
 - `.agent/skills/`
   - The one and only canonical skill library for the merged system
   - Contains the upgraded merged skills plus all unique skills brought in from both source projects
+  - Now includes stronger workflow control for planning, isolated branch work, review handling, end-to-end delivery, and verification discipline
 - `.agent/agents/`
   - Specialist agent prompts
 - `.agent/workflows/`
@@ -40,6 +41,7 @@ That skill is the routing and execution layer for the entire bundle. It tells an
 - Stale ownership metadata and broken `./skills/...` marketplace paths were removed from `.claude-plugin/marketplace.json`.
 - Restrictive office-document skills were removed from the public bundle so the repository stays clean to redistribute and review.
 - Runtime side effects such as preview PID/log files are now ignored by git.
+- Incoming community bundles are audited before merge; launcher files and external app shells are not imported into the canonical skill tree.
 
 ## Upgraded Core Layer
 
@@ -64,6 +66,13 @@ The repository now includes an explicit operating layer:
   - `.agent/skills/frontend-design`
   - `.agent/skills/mcp-builder`
   - `.agent/skills/webapp-testing`
+- Additional workflow skills were rewritten into the bundle in local house style:
+  - `.agent/skills/verification-before-completion`
+  - `.agent/skills/using-git-worktrees`
+  - `.agent/skills/executing-plans`
+  - `.agent/skills/receiving-code-review`
+  - `.agent/skills/closed-loop-delivery`
+  - `.agent/skills/finishing-a-development-branch`
 - Restrictive-license office skills were removed during hardening:
   - `.agent/skills/docx`
   - `.agent/skills/pdf`
@@ -76,3 +85,4 @@ The repository now includes an explicit operating layer:
 - Keep progressive disclosure: read only the references needed for the task.
 - Favor execution, validation, and clarity over vague advice.
 - Keep the merged repo structurally honest: one skill tree, not two mirrored trees.
+- Prefer rewritten, repo-aligned workflows over wholesale imports from external bundles.

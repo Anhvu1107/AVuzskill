@@ -1,0 +1,8 @@
+interface:
+  display_name: "Receiving Code Review"
+  short_description: "Process review feedback with technical rigor"
+  brand_color: "#7C3AED"
+  default_prompt: "Use $receiving-code-review to triage these review comments, implement valid fixes, and verify them."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,175 +1,108 @@
 ---
 name: parallel-agents
-description: Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domain expertise or when comprehensive analysis requires multiple perspectives.
-allowed-tools: Read, Glob, Grep
+description: Use when a task contains multiple independent questions, investigations, or implementation slices that can run in parallel without blocking the next local step. Apply this skill to split work cleanly across subagents with explicit ownership, no duplicated effort, and controlled integration.
 ---
 
-# Native Parallel Agents
+# Parallel Agents
 
-> Orchestration through Antigravity's built-in Agent Tool
+## Purpose
 
-## Overview
+Parallelism is a force multiplier only when the subtasks are truly independent.
 
-This skill enables coordinating multiple specialized agents through Antigravity's native agent system. Unlike external scripts, this approach keeps all orchestration within Antigravity's control.
+This skill helps an agent decide what to do locally now, what to delegate, and how to integrate results without chaos.
 
-## When to Use Orchestration
+## Use This Skill When
 
-✅ **Good for:**
-- Complex tasks requiring multiple expertise domains
-- Code analysis from security, performance, and quality perspectives
-- Comprehensive reviews (architecture + security + testing)
-- Feature implementation needing backend + frontend + database work
+- there are distinct research questions that can be answered separately
+- different codebase slices can be changed without touching the same files
+- verification can run in parallel with active implementation
+- the next local step is clear even while subagents work in the background
 
-❌ **Not for:**
-- Simple, single-domain tasks
-- Quick fixes or small changes
-- Tasks where one agent suffices
+## Do Not Use This Skill When
 
----
+- the very next step is blocked on the delegated answer
+- two subtasks need the same file ownership
+- the work is tightly coupled and likely to thrash between agents
+- the task is small enough that delegation would add overhead
 
-## Native Agent Invocation
+## Core Rule
 
-### Single Agent
-```
-Use the security-auditor agent to review authentication
-```
+Do the immediate blocking work locally.
 
-### Sequential Chain
-```
-First, use the explorer-agent to discover project structure.
-Then, use the backend-specialist to review API endpoints.
-Finally, use the test-engineer to identify test gaps.
-```
+Delegate only bounded sidecar tasks that materially advance the main goal without stalling the critical path.
 
-### With Context Passing
-```
-Use the frontend-specialist to analyze React components.
-Based on those findings, have the test-engineer generate component tests.
-```
+## Decision Process
 
-### Resume Previous Work
-```
-Resume agent [agentId] and continue with additional requirements.
-```
+1. Identify the immediate local step.
+   - What should happen right now if no delegation existed?
+2. Identify sidecar tasks.
+   - discovery, isolated implementation, verification, or review work
+3. Check independence.
+   - separate files, separate questions, separate failure domains
+4. Assign ownership.
+   - each subagent gets a clear output and a disjoint scope
+5. Keep working locally.
+   - do not wait by reflex
+6. Integrate and verify.
 
----
+## Good Delegation Targets
 
-## Orchestration Patterns
+- "map where auth state is read in the frontend"
+- "implement tests in this one file"
+- "review these changed files for regression risk"
+- "compare two isolated approaches and return tradeoffs"
 
-### Pattern 1: Comprehensive Analysis
-```
-Agents: explorer-agent → [domain-agents] → synthesis
+## Bad Delegation Targets
 
-1. explorer-agent: Map codebase structure
-2. security-auditor: Security posture
-3. backend-specialist: API quality
-4. frontend-specialist: UI/UX patterns
-5. test-engineer: Test coverage
-6. Synthesize all findings
-```
+- "figure out the whole task and tell me what to do"
+- "implement the part I need before I can continue"
+- "work on the same module another agent is editing"
+- "repeat analysis I am already doing locally"
 
-### Pattern 2: Feature Review
-```
-Agents: affected-domain-agents → test-engineer
+## Prompt Shape
 
-1. Identify affected domains (backend? frontend? both?)
-2. Invoke relevant domain agents
-3. test-engineer verifies changes
-4. Synthesize recommendations
-```
+Each delegated task should include:
 
-### Pattern 3: Security Audit
-```
-Agents: security-auditor → penetration-tester → synthesis
+- objective
+- exact scope or file ownership
+- constraints
+- expected output
+- reminder that other agents may also be editing elsewhere
 
-1. security-auditor: Configuration and code review
-2. penetration-tester: Active vulnerability testing
-3. Synthesize with prioritized remediation
-```
+## Integration Rules
 
----
+- Review returned changes quickly before trusting them.
+- Verify delegated claims the same way you would verify your own.
+- Synthesize outputs into one coherent answer or patch set.
+- Close subagents when their job is done.
 
-## Available Agents
+## Recommended Patterns
 
-| Agent | Expertise | Trigger Phrases |
-|-------|-----------|-----------------|
-| `orchestrator` | Coordination | "comprehensive", "multi-perspective" |
-| `security-auditor` | Security | "security", "auth", "vulnerabilities" |
-| `penetration-tester` | Security Testing | "pentest", "red team", "exploit" |
-| `backend-specialist` | Backend | "API", "server", "Node.js", "Express" |
-| `frontend-specialist` | Frontend | "React", "UI", "components", "Next.js" |
-| `test-engineer` | Testing | "tests", "coverage", "TDD" |
-| `devops-engineer` | DevOps | "deploy", "CI/CD", "infrastructure" |
-| `database-architect` | Database | "schema", "Prisma", "migrations" |
-| `mobile-developer` | Mobile | "React Native", "Flutter", "mobile" |
-| `api-designer` | API Design | "REST", "GraphQL", "OpenAPI" |
-| `debugger` | Debugging | "bug", "error", "not working" |
-| `explorer-agent` | Discovery | "explore", "map", "structure" |
-| `documentation-writer` | Documentation | "write docs", "create README", "generate API docs" |
-| `performance-optimizer` | Performance | "slow", "optimize", "profiling" |
-| `project-planner` | Planning | "plan", "roadmap", "milestones" |
-| `seo-specialist` | SEO | "SEO", "meta tags", "search ranking" |
-| `game-developer` | Game Development | "game", "Unity", "Godot", "Phaser" |
+### Parallel Discovery
 
----
+- one subagent per independent question
+- main agent synthesizes the answers
 
-## Antigravity Built-in Agents
+### Split Implementation
 
-These work alongside custom agents:
+- one subagent per disjoint write surface
+- main agent keeps ownership of integration and final verification
 
-| Agent | Model | Purpose |
-|-------|-------|---------|
-| **Explore** | Haiku | Fast read-only codebase search |
-| **Plan** | Sonnet | Research during plan mode |
-| **General-purpose** | Sonnet | Complex multi-step modifications |
+### Implementation Plus Verification
 
-Use **Explore** for quick searches, **custom agents** for domain expertise.
+- main agent implements
+- subagent verifies tests, UI, or risk areas in parallel
 
----
+## Red Flags
 
-## Synthesis Protocol
+- delegating the task you should be doing locally
+- overlapping write ownership
+- waiting immediately after spawning
+- trusting subagent success reports without checking
+- using subagents for simple work that would be faster inline
 
-After all agents complete, synthesize:
+## Related Skills
 
-```markdown
-## Orchestration Synthesis
-
-### Task Summary
-[What was accomplished]
-
-### Agent Contributions
-| Agent | Finding |
-|-------|---------|
-| security-auditor | Found X |
-| backend-specialist | Identified Y |
-
-### Consolidated Recommendations
-1. **Critical**: [Issue from Agent A]
-2. **Important**: [Issue from Agent B]
-3. **Nice-to-have**: [Enhancement from Agent C]
-
-### Action Items
-- [ ] Fix critical security issue
-- [ ] Refactor API endpoint
-- [ ] Add missing tests
-```
-
----
-
-## Best Practices
-
-1. **Available agents** - 17 specialized agents can be orchestrated
-2. **Logical order** - Discovery → Analysis → Implementation → Testing
-3. **Share context** - Pass relevant findings to subsequent agents
-4. **Single synthesis** - One unified report, not separate outputs
-5. **Verify changes** - Always include test-engineer for code modifications
-
----
-
-## Key Benefits
-
-- ✅ **Single session** - All agents share context
-- ✅ **AI-controlled** - Claude orchestrates autonomously
-- ✅ **Native integration** - Works with built-in Explore, Plan agents
-- ✅ **Resume support** - Can continue previous agent work
-- ✅ **Context passing** - Findings flow between agents
+- `closed-loop-delivery` for end-to-end execution against acceptance criteria
+- `executing-plans` when the work follows an approved plan
+- `verification-before-completion` before claiming delegated work is complete

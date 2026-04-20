@@ -23,6 +23,12 @@ Lam bundle nay an toan hon de public, de AI khac co the dung ngay, va de giam to
   - resolve lenh npm/yarn/pnpm/bun tren Windows theo cach ro rang hon
 - Mo rong `.gitignore` de bo qua file runtime va log tao ra trong luc preview.
 - Cap nhat lai routing, quality bar, va huong dan su dung theo huong local-first.
+- Audit 2 bundle cong dong moi (`superpowers-main.zip`, `antigravity-awesome-skills-main.zip`) truoc khi gop.
+- Khong import launcher hay app shell tu bundle ngoai vao cay skill chinh:
+  - `superpowers-main/hooks/run-hook.cmd`
+  - `antigravity-awesome-skills-main/START_APP.bat`
+  - `antigravity-awesome-skills-main/scripts/activate-skills.bat`
+- Chi hap thu cac workflow gia tri cao bang cach viet lai local-first vao skill tree hien tai.
 
 ## Ket Qua Audit
 
@@ -31,10 +37,11 @@ Lam bundle nay an toan hon de public, de AI khac co the dung ngay, va de giam to
 - Khong tim thay executable binary dang ngo trong repo.
 - Cac skill con lai khong tu dong ket noi ra ngoai; nhung skill dung provider ben ngoai van la opt-in va can duoc goi ro rang.
 - Da chay custom scan bang Windows Defender tren `D:\\skill\\skill\\agent-skills-unified` va khong co threat nao duoc bao cao.
+- Khong dua file `.bat`, `.cmd`, app web, hay script launcher tu 2 bundle moi vao thu vien skill canonical.
 
 ## Tinh Trang Sau Hardening
 
-- Thu vien skill con lai: 48 skill.
+- Thu vien skill hien tai: duoc tang cuong bang nhom workflow moi cho verification, worktrees, plan execution, review handling, branch closeout, va closed-loop delivery.
 - Cau hinh mac dinh: local-first, khong co MCP server ben ngoai duoc bat san.
 - Metadata/plugin market da duoc lam sach de phu hop voi bundle merged hien tai.
 

@@ -67,6 +67,21 @@ Use $database-design to propose the schema and indexing strategy.
 Use $systematic-debugging to find the root cause of this issue.
 ```
 
+- co san plan va muon AI thi cong theo dung trinh tu:
+```text
+Use $executing-plans to follow this plan step by step and verify each stage.
+```
+
+- muon AI lam den noi den chon, co acceptance criteria ro:
+```text
+Use $closed-loop-delivery to finish this task end to end and prove the result.
+```
+
+- dang xu ly review comments:
+```text
+Use $receiving-code-review to triage these comments, fix valid issues, and verify them.
+```
+
 - review code:
 ```text
 Use $code-review-checklist to review these changes for bugs and risks.
@@ -79,6 +94,8 @@ Use $code-review-checklist to review these changes for bugs and risks.
 3. Task lon thi de AI ghep nhieu skill theo thu tu.
 4. Task code thi luon yeu cau verify hoac test sau khi sua.
 5. Task review thi uu tien bug, regression, missing test truoc phan style.
+6. Neu task da co plan, dung `$executing-plans` thay vi de AI vua nghi vua che lai ke hoach.
+7. Neu task can "done that su", dung them `$verification-before-completion` hoac goi thang `$closed-loop-delivery`.
 
 ## Quy Trinh Khuyen Dung
 
@@ -100,13 +117,31 @@ Use $frontend-design to define the visual direction, hierarchy, and implementati
 Use $workspace-operating-system to route this bug, then use the right debugging and verification skills.
 ```
 
-### 4. Task review
+### 4. Task review feedback
+
+```text
+Use $receiving-code-review to process these review comments, apply valid fixes, and verify them.
+```
+
+### 5. Task review
 
 ```text
 Use $workspace-operating-system to choose the right review stack, then review this code with a risk-first mindset.
 ```
 
-### 5. Task tai lieu, brief, hoac noi dung can trinh bay ro
+### 6. Task thi cong theo plan
+
+```text
+Use $executing-plans to implement this approved plan without drifting from scope.
+```
+
+### 7. Task can chot den noi den chon
+
+```text
+Use $closed-loop-delivery to finish this task end to end and only stop when the acceptance criteria are proven.
+```
+
+### 8. Task tai lieu, brief, hoac noi dung can trinh bay ro
 
 Goi theo huong viet va dieu phoi noi dung:
 
@@ -184,6 +219,7 @@ python .agent/skills/workspace-operating-system/scripts/build_skill_catalog.py
 - Repo nay da duoc gop that su, khong con hai thu vien skill song song nua.
 - Mac dinh repo nay la local-first: khong bat san MCP server ben ngoai.
 - 4 skill file van phong co license han che da duoc go bo khoi ban public cua bundle.
+- Cac workflow moi duoc viet lai theo he Codex hien tai, khong import launcher hay app shell tu bundle la vao cay skill chinh.
 
 ## Cau Mo Dau Tot Nhat
 

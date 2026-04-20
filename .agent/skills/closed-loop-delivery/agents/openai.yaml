@@ -1,0 +1,8 @@
+interface:
+  display_name: "Closed-Loop Delivery"
+  short_description: "Drive coding work to a proven done state"
+  brand_color: "#C2410C"
+  default_prompt: "Use $closed-loop-delivery to finish this task end to end against explicit acceptance criteria."
+
+policy:
+  allow_implicit_invocation: true

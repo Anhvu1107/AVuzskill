@@ -1,0 +1,8 @@
+interface:
+  display_name: "Executing Plans"
+  short_description: "Carry approved plans through implementation and verification"
+  brand_color: "#1D4ED8"
+  default_prompt: "Use $executing-plans to follow the approved plan step by step and verify each stage."
+
+policy:
+  allow_implicit_invocation: true

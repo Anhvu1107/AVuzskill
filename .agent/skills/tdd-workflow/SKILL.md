@@ -1,149 +1,80 @@
 ---
 name: tdd-workflow
-description: Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle.
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+description: Use when implementing behavior that should be driven by tests first. Apply this skill for bug fixes, core logic, parsing, validation, state transitions, or any change where a failing test can define the expected behavior before code is written.
 ---
 
 # TDD Workflow
 
-> Write tests first, code second.
+## Purpose
 
----
+Use tests to define behavior before implementation makes the answer look obvious.
 
-## 1. The TDD Cycle
+TDD is most valuable when logic can drift, regressions are likely, or requirements are easiest to pin down as executable examples.
 
-```
-🔴 RED → Write failing test
-    ↓
-🟢 GREEN → Write minimal code to pass
-    ↓
-🔵 REFACTOR → Improve code quality
-    ↓
-   Repeat...
-```
+## When To Use
 
----
+- bug fixes with a reproducible symptom
+- new behavior with clear expected outcomes
+- parsing, validation, calculation, or stateful logic
+- code that is easy to verify through focused tests
 
-## 2. The Three Laws of TDD
+## When Not To Force It
 
-1. Write production code only to make a failing test pass
-2. Write only enough test to demonstrate failure
-3. Write only enough code to make the test pass
+- pure visual layout exploration
+- one-off glue code where test setup costs more than the logic
+- tasks blocked by missing architecture decisions
 
----
+## Core Cycle
 
-## 3. RED Phase Principles
+1. Red
+   - write or update a test that demonstrates the missing behavior
+   - watch it fail for the right reason
+2. Green
+   - write the smallest code change that makes the test pass
+3. Refactor
+   - improve names, structure, and duplication while staying green
 
-### What to Write
+Repeat until the behavior is complete.
 
-| Focus | Example |
-|-------|---------|
-| Behavior | "should add two numbers" |
-| Edge cases | "should handle empty input" |
-| Error states | "should throw for invalid data" |
+## Rules
 
-### RED Phase Rules
+- Do not write production logic before you have a failing proof.
+- Keep each test focused on one behavior.
+- Prefer the smallest realistic test that proves the point.
+- Run the focused test first, then widen verification as confidence grows.
 
-- Test must fail first
-- Test name describes expected behavior
-- One assertion per test (ideally)
+## Bug-Fix Pattern
 
----
+1. Reproduce the bug in a test.
+2. See it fail before the fix.
+3. Patch the code.
+4. See the test pass.
+5. Run any nearby regression checks.
 
-## 4. GREEN Phase Principles
+If you never saw the failure, you did not prove the fix.
 
-### Minimum Code
+## Green-Phase Discipline
 
-| Principle | Meaning |
-|-----------|---------|
-| **YAGNI** | You Aren't Gonna Need It |
-| **Simplest thing** | Write the minimum to pass |
-| **No optimization** | Just make it work |
+- solve only the current test
+- avoid speculative abstractions
+- skip optimization until the behavior is correct
 
-### GREEN Phase Rules
+## Refactor Discipline
 
-- Don't write unneeded code
-- Don't optimize yet
-- Pass the test, nothing more
+- keep tests green throughout
+- improve one dimension at a time
+- stop refactoring when the next change adds risk without meaningfully improving clarity
 
----
+## Common Anti-Patterns
 
-## 5. REFACTOR Phase Principles
+- writing the test after the fix
+- checking only happy paths
+- broad integration tests when a focused unit test would prove the behavior faster
+- changing several behaviors before rerunning tests
+- claiming TDD happened without ever seeing red
 
-### What to Improve
+## Related Skills
 
-| Area | Action |
-|------|--------|
-| Duplication | Extract common code |
-| Naming | Make intent clear |
-| Structure | Improve organization |
-| Complexity | Simplify logic |
-
-### REFACTOR Rules
-
-- All tests must stay green
-- Small incremental changes
-- Commit after each refactor
-
----
-
-## 6. AAA Pattern
-
-Every test follows:
-
-| Step | Purpose |
-|------|---------|
-| **Arrange** | Set up test data |
-| **Act** | Execute code under test |
-| **Assert** | Verify expected outcome |
-
----
-
-## 7. When to Use TDD
-
-| Scenario | TDD Value |
-|----------|-----------|
-| New feature | High |
-| Bug fix | High (write test first) |
-| Complex logic | High |
-| Exploratory | Low (spike, then TDD) |
-| UI layout | Low |
-
----
-
-## 8. Test Prioritization
-
-| Priority | Test Type |
-|----------|-----------|
-| 1 | Happy path |
-| 2 | Error cases |
-| 3 | Edge cases |
-| 4 | Performance |
-
----
-
-## 9. Anti-Patterns
-
-| ❌ Don't | ✅ Do |
-|----------|-------|
-| Skip the RED phase | Watch test fail first |
-| Write tests after | Write tests before |
-| Over-engineer initial | Keep it simple |
-| Multiple asserts | One behavior per test |
-| Test implementation | Test behavior |
-
----
-
-## 10. AI-Augmented TDD
-
-### Multi-Agent Pattern
-
-| Agent | Role |
-|-------|------|
-| Agent A | Write failing tests (RED) |
-| Agent B | Implement to pass (GREEN) |
-| Agent C | Optimize (REFACTOR) |
-
----
-
-> **Remember:** The test is the specification. If you can't write a test, you don't understand the requirement.
+- `testing-patterns` for broader testing strategy
+- `systematic-debugging` when the failure cause is not yet understood
+- `verification-before-completion` before claiming the fix is complete

@@ -20,10 +20,15 @@ CATEGORY_MAP = {
         "workspace-operating-system",
         "behavioral-modes",
         "brainstorming",
+        "closed-loop-delivery",
+        "executing-plans",
+        "finishing-a-development-branch",
         "intelligent-routing",
         "parallel-agents",
         "plan-writing",
         "skill-creator",
+        "using-git-worktrees",
+        "verification-before-completion",
         "documentation-templates",
     ],
     "Architecture And Delivery": [
@@ -57,6 +62,7 @@ CATEGORY_MAP = {
     ],
     "Quality And Verification": [
         "code-review-checklist",
+        "receiving-code-review",
         "testing-patterns",
         "tdd-workflow",
         "webapp-testing",

@@ -22,9 +22,28 @@ Use for new features, dashboards, landing pages with backend logic, or app shell
 - `frontend-design`
 - `database-design`
 - `deployment-procedures`
+- `closed-loop-delivery`
 - `testing-patterns`
 
 Use when the request is "build the app" rather than "improve one slice."
+
+### Plan Execution
+
+- `plan-writing`
+- `executing-plans`
+- `using-git-worktrees`
+- `verification-before-completion`
+
+Use when the strategy is agreed and the main risk is drift, skipped steps, or weak verification.
+
+### Closed-Loop Feature Delivery
+
+- `closed-loop-delivery`
+- relevant domain skill
+- `receiving-code-review`
+- `verification-before-completion`
+
+Use when the user expects end-to-end completion, including review response and proof of behavior.
 
 ### UI Polish With Real Quality Control
 
@@ -50,8 +69,17 @@ Use for new endpoints, auth flows, or business logic that crosses API and schema
 - relevant domain skill
 - `webapp-testing` or `testing-patterns`
 - `lint-and-validate`
+- `verification-before-completion`
 
 Use when behavior is failing and root cause is not yet obvious.
+
+### Review Response
+
+- `receiving-code-review`
+- relevant domain skill
+- `verification-before-completion`
+
+Use when the work is mostly about understanding feedback, making the right fixes, and proving the comments are resolved.
 
 ### Security Pass
 
@@ -85,4 +113,5 @@ Use when adding, upgrading, or standardizing skills inside this repository.
 - Name the primary skill first.
 - Add only support skills that materially reduce risk or rework.
 - Keep the sequence explicit: plan -> build -> verify, or reproduce -> fix -> verify.
+- Prefer `using-git-worktrees` when isolation reduces branch or workspace risk.
 - When two skills overlap, prefer the one closest to the actual deliverable.

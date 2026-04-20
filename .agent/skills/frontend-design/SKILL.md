@@ -17,6 +17,7 @@ Read these only when relevant:
 - `references/animation-guide.md` for motion behavior
 - `references/motion-graphics.md` for advanced motion work
 - `references/decision-trees.md` for context-specific direction
+- `references/ui-guardrails.md` for Tailwind, component, and interaction-quality guardrails
 
 ## Core Approach
 
@@ -73,6 +74,8 @@ Read these only when relevant:
 - Match complexity to the chosen aesthetic.
 - Favor a few strong motion moments over constant micro-animation.
 - Respect reduced-motion and accessibility needs.
+- Use the existing component system first, and use accessible primitives for keyboard or focus-heavy interactions.
+- Prefer composited motion, intentional z-index scales, and mobile-safe viewport handling over flashy effects.
 
 ## Review Checklist
 

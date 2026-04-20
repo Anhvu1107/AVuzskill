@@ -1,0 +1,8 @@
+interface:
+  display_name: "Finish Development Branch"
+  short_description: "Close out verified branch work without messy handoff"
+  brand_color: "#059669"
+  default_prompt: "Use $finishing-a-development-branch to summarize this branch, verify readiness, and present the next-step options."
+
+policy:
+  allow_implicit_invocation: true

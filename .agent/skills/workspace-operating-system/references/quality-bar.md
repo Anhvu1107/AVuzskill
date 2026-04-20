@@ -25,6 +25,7 @@ Apply this finish standard to all meaningful work in this repository.
 ## Before Finishing
 
 - Verify the most important behavior you changed.
+- Do not describe work as done, fixed, or passing without fresh evidence from the current state.
 - Call out what was tested, inspected, or validated.
 - State residual risk when something could not be verified.
 - Leave the result more coherent than you found it.
@@ -37,6 +38,7 @@ The work should be:
 - clear enough for another agent to continue
 - specific enough to feel intentional
 - validated enough to reduce back-and-forth
+- explicit enough that another agent could continue from the current state
 
 ## Red Flags
 
@@ -44,5 +46,6 @@ Do not finish if the output is:
 
 - generic when the task required judgment
 - unvalidated when the task was testable
+- phrased as complete when the evidence is partial or stale
 - overcomplicated relative to the request
 - missing the main user outcome

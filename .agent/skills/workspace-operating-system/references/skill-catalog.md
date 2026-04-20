@@ -2,7 +2,7 @@
 
 Generated from the current unified skill library.
 
-Total skills: 48
+Total skills: 54
 
 Use this file when the correct skill is unclear and you need exhaustive coverage.
 
@@ -11,10 +11,15 @@ Use this file when the correct skill is unclear and you need exhaustive coverage
 - `workspace-operating-system`: Central routing, sequencing, and quality-control layer for this unified skill bundle. Use when Codex is working anywhere in this repository and needs to decide which skills to load, how to combine them, what execution mode to use, or what quality bar to apply. Especially important for broad, ambiguous, multi-step, cross-domain, or high-value requests where the right workflow matters as much as the final answer.
 - `behavioral-modes`: AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt behavior based on task type.
 - `brainstorming`: Socratic questioning protocol + user communication. MANDATORY for complex requests, new features, or unclear requirements. Includes progress reporting and error handling.
+- `closed-loop-delivery`: Use when a coding task should be driven to a real done state with explicit acceptance criteria, implementation, verification, review response, and runtime confirmation where needed. Apply this skill for end-to-end delivery, not just code edits.
+- `executing-plans`: Use when there is already a written plan or clear task list and the next job is to execute it carefully. Apply this skill when implementation should follow an approved sequence, checkpoint, or plan document instead of improvising from scratch.
+- `finishing-a-development-branch`: Use when a branch or worktree is functionally complete and the next step is to decide how to wrap it up. Apply this skill before pushing, opening a PR, merging, keeping, or discarding completed branch work.
 - `intelligent-routing`: Automatic agent selection and intelligent task routing. Analyzes user requests and automatically selects the best specialist agent(s) without requiring explicit user mentions.
-- `parallel-agents`: Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domain expertise or when comprehensive analysis requires multiple perspectives.
-- `plan-writing`: Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when implementing features, refactoring, or any multi-step work.
-- `skill-creator`: Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.
+- `parallel-agents`: Use when a task contains multiple independent questions, investigations, or implementation slices that can run in parallel without blocking the next local step. Apply this skill to split work cleanly across subagents with explicit ownership, no duplicated effort, and controlled integration.
+- `plan-writing`: Use when a task needs a clear execution plan before implementation starts. Apply this skill for multi-step features, meaningful refactors, risky bug fixes, or any work where sequence, scope, ownership, and verification should be made explicit first.
+- `skill-creator`: Use when creating a new skill, rewriting an existing skill, or tightening a skill so future agents can trigger it correctly and follow it reliably. Apply this skill for skill design, metadata cleanup, workflow refactors, validation, and bundled-resource decisions inside this repository.
+- `using-git-worktrees`: Use when work should happen in an isolated git workspace instead of the current checkout. Apply this skill for risky feature work, parallel branches, review fixes, or any task that benefits from a clean worktree with a known baseline.
+- `verification-before-completion`: Use when an agent is about to say work is done, fixed, passing, ready to merge, or ready to ship. Apply this skill whenever a completion claim needs fresh evidence from commands, tests, runtime checks, or direct inspection instead of assumption.
 - `documentation-templates`: Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly documentation.
 
 ## Architecture And Delivery
@@ -51,8 +56,9 @@ Use this file when the correct skill is unclear and you need exhaustive coverage
 ## Quality And Verification
 
 - `code-review-checklist`: Code review guidelines covering code quality, security, and best practices.
+- `receiving-code-review`: Use when review comments, requested changes, or code-review feedback need to be interpreted and acted on. Apply this skill when an agent should evaluate feedback technically, clarify ambiguous items, and fix valid issues without blind agreement.
 - `testing-patterns`: Testing patterns and principles. Unit, integration, mocking strategies.
-- `tdd-workflow`: Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle.
+- `tdd-workflow`: Use when implementing behavior that should be driven by tests first. Apply this skill for bug fixes, core logic, parsing, validation, state transitions, or any change where a failing test can define the expected behavior before code is written.
 - `webapp-testing`: Toolkit and workflow for interacting with and testing web applications using Playwright. Use when Codex needs to verify local or remote web app behavior, discover routes and selectors, run end-to-end checks, inspect rendered DOM, capture screenshots, review console output, or debug frontend flows with browser automation.
 - `lint-and-validate`: Automatic quality control, linting, and static analysis procedures. Use after every code modification to ensure syntax correctness and project standards. Triggers onKeywords: lint, format, check, validate, types, static analysis.
 - `performance-profiling`: Performance profiling principles. Measurement, analysis, and optimization techniques.

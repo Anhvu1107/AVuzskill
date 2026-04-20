@@ -55,8 +55,10 @@ Read only when needed:
 - For coding tasks, route by the real bottleneck:
   - architecture unclear -> `architecture`
   - implementation heavy -> domain skill such as `app-builder`, `api-patterns`, `frontend-design`, or `database-design`
+  - approved plan exists -> `executing-plans`
+  - explicit acceptance criteria and end-to-end closure matter -> `closed-loop-delivery`
   - failing behavior -> `systematic-debugging` plus the relevant domain skill
-  - validation gap -> `testing-patterns`, `webapp-testing`, `lint-and-validate`, or `performance-profiling`
+  - validation gap -> `testing-patterns`, `webapp-testing`, `lint-and-validate`, `performance-profiling`, or `verification-before-completion`
 - For document and communication work, prefer `doc-coauthoring` or `internal-comms` plus brand and design support rather than opaque one-off scripts.
 
 ## Composition Rules
@@ -71,6 +73,7 @@ Read only when needed:
 - New feature: plan -> design/architecture -> build -> test -> polish
 - Bug fix: reproduce -> debug -> patch -> verify -> summarize cause
 - Review request: prioritize risks, regressions, and missing validation over style commentary
+- Review feedback request: use `receiving-code-review` before making broad changes
 - UI request: clarify direction, preserve usability, and avoid generic output
 - Infrastructure or deployment request: favor explicit validation and rollback awareness
 - Repository hardening request: audit -> remove restricted material -> neutralize external defaults -> verify -> document
@@ -81,6 +84,8 @@ Read only when needed:
 - Use `parallel-agents` for multi-agent decomposition when the environment supports it.
 - Use `behavioral-modes` to adapt how you communicate and reason.
 - Use `skill-creator` when modifying this bundle or adding new skills.
+- Use `using-git-worktrees` when isolated branch work is safer than editing in place.
+- Use `finishing-a-development-branch` when a verified branch needs a clean next-step decision.
 
 ## Finish Condition
 
