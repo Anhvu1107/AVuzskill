@@ -1,0 +1,8 @@
+interface:
+  display_name: "Architecture"
+  short_description: "Choose system shape, boundaries, and tradeoffs clearly"
+  brand_color: "#0F766E"
+  default_prompt: "Use $architecture to evaluate the system design options and recommend the right architecture."
+
+policy:
+  allow_implicit_invocation: true

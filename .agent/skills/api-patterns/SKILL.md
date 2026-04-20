@@ -1,81 +1,71 @@
 ---
 name: api-patterns
-description: API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, versioning, pagination.
-allowed-tools: Read, Write, Edit, Glob, Grep
+description: Use when designing or reviewing an API contract, endpoint shape, transport style, versioning strategy, authentication model, or error format. Apply this skill for REST, GraphQL, and tRPC decisions, not just endpoint implementation details.
 ---
 
 # API Patterns
 
-> API design principles and decision-making for 2025.
-> **Learn to THINK, not copy fixed patterns.**
+## Selective Reading Rule
 
-## 🎯 Selective Reading Rule
+Start with the file that answers the current design question:
 
-**Read ONLY files relevant to the request!** Check the content map, find what you need.
+- `api-style.md` for REST vs GraphQL vs tRPC
+- `rest.md` for REST endpoint and resource design
+- `graphql.md` for GraphQL fit and schema considerations
+- `trpc.md` for TypeScript-first monorepo APIs
+- `response.md` for envelopes, pagination, and error contracts
+- `versioning.md` for API evolution
+- `auth.md` for authentication and caller identity
+- `rate-limiting.md` for abuse protection
+- `documentation.md` for API docs and discoverability
+- `security-testing.md` when reviewing API risk
 
----
+## Purpose
 
-## 📑 Content Map
+Choose an API style that fits the consumers, the team, and the product boundary.
 
-| File | Description | When to Read |
-|------|-------------|--------------|
-| `api-style.md` | REST vs GraphQL vs tRPC decision tree | Choosing API type |
-| `rest.md` | Resource naming, HTTP methods, status codes | Designing REST API |
-| `response.md` | Envelope pattern, error format, pagination | Response structure |
-| `graphql.md` | Schema design, when to use, security | Considering GraphQL |
-| `trpc.md` | TypeScript monorepo, type safety | TS fullstack projects |
-| `versioning.md` | URI/Header/Query versioning | API evolution planning |
-| `auth.md` | JWT, OAuth, Passkey, API Keys | Auth pattern selection |
-| `rate-limiting.md` | Token bucket, sliding window | API protection |
-| `documentation.md` | OpenAPI/Swagger best practices | Documentation |
-| `security-testing.md` | OWASP API Top 10, auth/authz testing | Security audits |
+An API is a contract. Changing it later is expensive, so design for clarity and operational reality early.
 
----
+## Use This Skill When
 
-## 🔗 Related Skills
+- picking between REST, GraphQL, and tRPC
+- shaping new endpoints or procedures
+- normalizing responses, errors, pagination, or filtering
+- deciding auth and versioning strategy
+- reviewing whether an API is too leaky, inconsistent, or hard to evolve
 
-| Need | Skill |
-|------|-------|
-| API implementation | `@[skills/backend-development]` |
-| Data structure | `@[skills/database-design]` |
-| Security details | `@[skills/security-hardening]` |
+## Core Workflow
 
----
+1. Identify the consumers.
+   - web client, mobile app, internal service, public integrators, same-repo frontend
+2. Choose the transport and contract style.
+   - REST, GraphQL, or tRPC based on usage patterns and team reality
+3. Define resource or procedure boundaries.
+4. Standardize responses.
+   - success shape, errors, pagination, identifiers, timestamps
+5. Decide control concerns.
+   - auth, rate limiting, idempotency, versioning, observability
+6. Document the contract in a way implementation can follow.
 
-## ✅ Decision Checklist
+## Heuristics
 
-Before designing an API:
+- Use REST when resources and cacheable operations dominate.
+- Use GraphQL when the client truly needs flexible graph traversal and multiple consumer views.
+- Use tRPC when TypeScript-first internal velocity matters more than public portability.
+- Keep error shapes consistent across the surface.
+- Avoid exposing internal storage structure as public API design.
 
-- [ ] **Asked user about API consumers?**
-- [ ] **Chosen API style for THIS context?** (REST/GraphQL/tRPC)
-- [ ] **Defined consistent response format?**
-- [ ] **Planned versioning strategy?**
-- [ ] **Considered authentication needs?**
-- [ ] **Planned rate limiting?**
-- [ ] **Documentation approach defined?**
+## Review Questions
 
----
+- Can a new consumer understand the contract quickly?
+- Are identifiers, status codes, and error shapes consistent?
+- Is pagination stable and predictable?
+- Can the API evolve without breaking common callers?
+- Are auth and authorization boundaries obvious?
 
-## ❌ Anti-Patterns
+## Related Skills
 
-**DON'T:**
-- Default to REST for everything
-- Use verbs in REST endpoints (/getUsers)
-- Return inconsistent response formats
-- Expose internal errors to clients
-- Skip rate limiting
-
-**DO:**
-- Choose API style based on context
-- Ask about client requirements
-- Document thoroughly
-- Use appropriate status codes
-
----
-
-## Script
-
-| Script | Purpose | Command |
-|--------|---------|---------|
-| `scripts/api_validator.py` | API endpoint validation | `python scripts/api_validator.py <project_path>` |
-
+- `architecture` for broader system-boundary decisions
+- `database-design` when endpoint shape is being distorted by schema issues
+- `mcp-builder` when the API surface is being adapted for tool-based LLM use
+- `verification-before-completion` before claiming an API contract is ready

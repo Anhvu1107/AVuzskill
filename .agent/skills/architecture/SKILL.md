@@ -1,55 +1,70 @@
 ---
 name: architecture
-description: Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentation. Use when making architecture decisions or analyzing system design.
-allowed-tools: Read, Glob, Grep
+description: Use when the hard part of a request is choosing system shape, boundaries, tradeoffs, or scaling direction before implementation begins. Apply this skill for system design, architecture reviews, major refactors, platform choices, and ADR-worthy decisions.
 ---
 
-# Architecture Decision Framework
+# Architecture
 
-> "Requirements drive architecture. Trade-offs inform decisions. ADRs capture rationale."
+## Selective Reading Rule
 
-## 🎯 Selective Reading Rule
+Start with:
 
-**Read ONLY files relevant to the request!** Check the content map, find what you need.
+- `context-discovery.md`
 
-| File | Description | When to Read |
-|------|-------------|--------------|
-| `context-discovery.md` | Questions to ask, project classification | Starting architecture design |
-| `trade-off-analysis.md` | ADR templates, trade-off framework | Documenting decisions |
-| `pattern-selection.md` | Decision trees, anti-patterns | Choosing patterns |
-| `examples.md` | MVP, SaaS, Enterprise examples | Reference implementations |
-| `patterns-reference.md` | Quick lookup for patterns | Pattern comparison |
+Read only what the task needs after that:
 
----
+- `trade-off-analysis.md` for ADRs, option comparison, and decision records
+- `pattern-selection.md` for architecture and service-pattern choices
+- `patterns-reference.md` for quick pattern lookup
+- `examples.md` when a concrete product shape helps
 
-## 🔗 Related Skills
+## Purpose
 
-| Skill | Use For |
-|-------|---------|
-| `@[skills/database-design]` | Database schema design |
-| `@[skills/api-patterns]` | API design patterns |
-| `@[skills/deployment-procedures]` | Deployment architecture |
+Use architecture work to reduce future rework, not to make the system look sophisticated on paper.
 
----
+Good architecture makes the next implementation decisions easier, clearer, and safer.
 
-## Core Principle
+## Use This Skill When
 
-**"Simplicity is the ultimate sophistication."**
+- requirements are clear enough to design, but the shape of the system is not
+- multiple architectures could work and tradeoffs need to be made explicit
+- a team needs guidance on boundaries, modules, services, or data flow
+- a refactor could change how core parts of the system fit together
 
-- Start simple
-- Add complexity ONLY when proven necessary
-- You can always add patterns later
-- Removing complexity is MUCH harder than adding it
+## Core Workflow
 
----
+1. Clarify the real job.
+   - user outcome, constraints, scale, team, delivery pressure
+2. Identify architecture pressure points.
+   - reliability, latency, complexity, change frequency, security, integrations
+3. Generate a small option set.
+   - usually 2 or 3 realistic paths
+4. Compare tradeoffs openly.
+   - complexity, speed, cost, operability, learning curve, future flexibility
+5. Recommend the smallest architecture that clears the constraints.
+6. Capture the decision.
+   - ADR, concise rationale, and what would change the recommendation later
 
-## Validation Checklist
+## Design Heuristics
 
-Before finalizing architecture:
+- Start with a monolith unless there is a proven reason not to.
+- Prefer explicit boundaries over early service sprawl.
+- Let change frequency influence module boundaries.
+- Optimize first for correctness and maintainability, then for scale that is actually expected.
+- Match architecture to team capacity, not just to technical possibility.
 
-- [ ] Requirements clearly understood
-- [ ] Constraints identified
-- [ ] Each decision has trade-off analysis
-- [ ] Simpler alternatives considered
-- [ ] ADRs written for significant decisions
-- [ ] Team expertise matches chosen patterns
+## Output Standard
+
+An architecture answer should leave the reader with:
+
+- the recommended shape
+- the rejected alternatives and why
+- the main tradeoffs
+- the next implementation implications
+
+## Related Skills
+
+- `app-builder` when the architecture should flow directly into building the app
+- `api-patterns` for service and contract design
+- `database-design` for schema and data-boundary decisions
+- `deployment-procedures` when runtime topology and release flow matter

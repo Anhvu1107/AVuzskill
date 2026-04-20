@@ -43,7 +43,6 @@ CATEGORY_MAP = {
         "web-design-guidelines",
         "tailwind-patterns",
         "nextjs-react-expert",
-        "react-best-practices",
         "mobile-design",
         "seo-fundamentals",
         "theme-factory",

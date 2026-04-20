@@ -1,0 +1,8 @@
+interface:
+  display_name: "Next.js React Expert"
+  short_description: "Improve React and Next.js performance the high-impact way"
+  brand_color: "#111827"
+  default_prompt: "Use $nextjs-react-expert to find the biggest React or Next.js bottleneck and optimize it deliberately."
+
+policy:
+  allow_implicit_invocation: true

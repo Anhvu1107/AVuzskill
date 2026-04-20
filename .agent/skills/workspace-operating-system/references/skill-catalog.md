@@ -24,8 +24,8 @@ Use this file when the correct skill is unclear and you need exhaustive coverage
 
 ## Architecture And Delivery
 
-- `app-builder`: Main application building orchestrator. Creates full-stack applications from natural language requests. Determines project type, selects tech stack, coordinates agents.
-- `architecture`: Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentation. Use when making architecture decisions or analyzing system design.
+- `app-builder`: Use when a request is really about building or extending an application, not just changing one isolated file. Apply this skill for turning product asks into app shape, stack choices, delivery sequence, and the right supporting skills or templates.
+- `architecture`: Use when the hard part of a request is choosing system shape, boundaries, tradeoffs, or scaling direction before implementation begins. Apply this skill for system design, architecture reviews, major refactors, platform choices, and ADR-worthy decisions.
 - `deployment-procedures`: Production deployment principles and decision-making. Safe deployment workflows, rollback strategies, and verification. Teaches thinking, not scripts.
 - `clean-code`: Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments
 - `server-management`: Server management principles and decision-making. Process management, monitoring strategy, and scaling decisions. Teaches thinking, not commands.
@@ -35,7 +35,7 @@ Use this file when the correct skill is unclear and you need exhaustive coverage
 - `frontend-design`: Design and implement distinctive, production-grade frontend interfaces with strong UX reasoning and a clear visual point of view. Use when Codex needs to create or improve web pages, landing pages, dashboards, components, app shells, or other frontend UI; choose typography, color, layout, spacing, backgrounds, or motion; turn vague visual goals into a coherent direction; or avoid generic AI-looking output while preserving accessibility, responsiveness, and usability.
 - `web-design-guidelines`: Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
 - `tailwind-patterns`: Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design token architecture.
-- `react-best-practices`: React and Next.js performance optimization from Vercel Engineering. Use when building React components, optimizing performance, eliminating waterfalls, reducing bundle size, reviewing code for performance issues, or implementing server/client-side optimizations.
+- `nextjs-react-expert`: Use when a React or Next.js task is bottlenecked by performance, rendering strategy, bundle size, client-server boundaries, or data-fetching behavior. Apply this skill for optimization, performance reviews, and modern Next.js execution choices.
 - `mobile-design`: Mobile-first design thinking and decision-making for iOS and Android apps. Touch interaction, performance patterns, platform conventions. Teaches principles, not fixed values. Use when building React Native, Flutter, or native mobile apps.
 - `seo-fundamentals`: SEO fundamentals, E-E-A-T, Core Web Vitals, and Google algorithm principles.
 - `theme-factory`: Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.
@@ -43,7 +43,7 @@ Use this file when the correct skill is unclear and you need exhaustive coverage
 
 ## Backend And Data
 
-- `api-patterns`: API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, versioning, pagination.
+- `api-patterns`: Use when designing or reviewing an API contract, endpoint shape, transport style, versioning strategy, authentication model, or error format. Apply this skill for REST, GraphQL, and tRPC decisions, not just endpoint implementation details.
 - `database-design`: Database design principles and decision-making. Schema design, indexing strategy, ORM selection, serverless databases.
 - `mcp-builder`: Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools, resources, and prompts. Use when building or improving MCP servers in Python or TypeScript, planning tool coverage, designing schemas, choosing transports, writing actionable errors, or creating evaluations for an MCP integration.
 - `nodejs-best-practices`: Node.js development principles and decision-making. Framework selection, async patterns, security, and architecture. Teaches thinking, not copying.
