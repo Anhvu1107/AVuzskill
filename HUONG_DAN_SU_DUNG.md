@@ -1,89 +1,91 @@
-# Huong Dan Su Dung
+# Hướng Dẫn Sử Dụng
 
-File nay la diem vao nhanh de dung bo `agent-skills-unified` ma khong can doc toan bo repo.
+Bản tiếng Anh: `USAGE_GUIDE.md`
 
-## Muc Tieu
+File này là điểm vào nhanh để dùng bộ `agent-skills-unified` mà không cần đọc toàn bộ repo.
 
-Bo nay duoc lam de ca nguoi va AI khac co the vao repo, hieu nen doc gi truoc, chon dung skill, lam dung thu tu, va tu kiem tra chat luong truoc khi ket thuc.
+## Mục Tiêu
 
-## Cach Dung Nhanh Nhat
+Bộ này được làm để cả người và AI khác có thể vào repo, hiểu nên đọc gì trước, chọn đúng skill, làm đúng thứ tự, và tự kiểm tra chất lượng trước khi kết thúc.
 
-Neu khong chac nen dung skill nao, hay bat dau bang:
+## Cách Dùng Nhanh Nhất
+
+Nếu không chắc nên dùng skill nào, hãy bắt đầu bằng:
 
 ```text
 Use $workspace-operating-system to decide the right skill stack for this task.
 ```
 
-Day la skill trung tam. No giup:
+Đây là skill trung tâm. Nó giúp:
 
-- phan loai task
-- chon skill chinh va skill phu
-- quyet dinh thu tu lam viec
-- nhac AI phai verify truoc khi chot
-- ep task code di theo branch-first, review-first, release-aware flow
-- giu ranh gioi an toan va hop phap cho nhung bai toan nhay cam
+- phân loại task
+- chọn skill chính và skill phụ
+- quyết định thứ tự làm việc
+- nhắc AI phải verify trước khi chốt
+- ép task code đi theo branch-first, review-first, release-aware flow
+- giữ ranh giới an toàn và hợp pháp cho những bài toán nhạy cảm
 
-## Khi Nao Dung Skill Trung Tam
+## Khi Nào Dùng Skill Trung Tâm
 
-Hay bat dau bang `$workspace-operating-system` khi:
+Hãy bắt đầu bằng `$workspace-operating-system` khi:
 
-- task con mo ho
-- task lon hoac nhieu buoc
-- task dung nhieu domain cung luc
-- ban muon AI tu chon quy trinh lam viec tot nhat
-- ban muon AI giai thich vi sao no chon skill do
+- task còn mơ hồ
+- task lớn hoặc nhiều bước
+- task đụng nhiều domain cùng lúc
+- bạn muốn AI tự chọn quy trình làm việc tốt nhất
+- bạn muốn AI giải thích vì sao nó chọn skill đó
 
-## Neu Y Tuong Rat Lon Hoac Rat Xa
+## Nếu Ý Tưởng Rất Lớn Hoặc Rất Xa
 
-Van dung duoc, nhung hay de AI xu ly theo cach senior:
+Vẫn dùng được, nhưng hãy để AI xử lý theo cách senior:
 
-- tach concept, prototype, simulator, va production
-- viet requirement, risk register, va verification plan truoc
-- build theo tung slice co the kiem chung
+- tách concept, prototype, simulator, và production
+- viết requirement, risk register, và verification plan trước
+- build theo từng slice có thể kiểm chứng
 
-Bo nay co the giup rat manh cho:
+Bộ này có thể giúp rất mạnh cho:
 
 - mission software
 - telemetry
 - digital twin
 - simulation
-- control-plane va observability
+- control-plane và observability
 
-Neu y tuong thuoc nhom he thong lon, hay goi thang:
+Nếu ý tưởng thuộc nhóm hệ thống lớn, hãy gọi thẳng:
 
 ```text
 Use $systems-engineering to turn this system idea into a mission brief, subsystem map, simulation-first plan, and first verifiable software slice.
 ```
 
-Nhung khong duoc dung de ho tro:
+Nhưng không được dùng để hỗ trợ:
 
-- vu khi, ten lua, guidance targeting
-- malware, doc du lieu trai phep, exfiltration
-- giam sat con nguoi khong dong y
-- loi hua "choi chung khoan luon thang"
+- vũ khí, tên lửa, guidance targeting
+- malware, đọc dữ liệu trái phép, exfiltration
+- giám sát con người không đồng ý
+- lời hứa "chơi chứng khoán luôn thắng"
 
-## Khi Nao Goi Thang Skill Chuyen Biet
+## Khi Nào Gọi Thẳng Skill Chuyên Biệt
 
-Goi truc tiep skill khi ban da biet ro viec can lam.
+Gọi trực tiếp skill khi bạn đã biết rõ việc cần làm.
 
-Vi du:
+Ví dụ:
 
 - UI, landing page, component:
 ```text
 Use $frontend-design to redesign this page and keep the UX clear.
 ```
 
-- test trinh duyet, kiem tra flow web:
+- test trình duyệt, kiểm tra flow web:
 ```text
 Use $webapp-testing to inspect the app and verify the main user flow.
 ```
 
-- tao MCP server:
+- tạo MCP server:
 ```text
 Use $mcp-builder to design and implement an MCP server for this API.
 ```
 
-- thiet ke API:
+- thiết kế API:
 ```text
 Use $api-patterns to design this endpoint and response format.
 ```
@@ -98,17 +100,17 @@ Use $database-design to propose the schema and indexing strategy.
 Use $systematic-debugging to find the root cause of this issue.
 ```
 
-- co san plan va muon AI thi cong theo dung trinh tu:
+- có sẵn plan và muốn AI thi công theo đúng trình tự:
 ```text
 Use $executing-plans to follow this plan step by step and verify each stage.
 ```
 
-- muon AI lam den noi den chon, co acceptance criteria ro:
+- muốn AI làm đến nơi đến chốn, có acceptance criteria rõ:
 ```text
 Use $closed-loop-delivery to finish this task end to end and prove the result.
 ```
 
-- dang xu ly review comments:
+- đang xử lý review comments:
 ```text
 Use $receiving-code-review to triage these comments, fix valid issues, and verify them.
 ```
@@ -118,22 +120,22 @@ Use $receiving-code-review to triage these comments, fix valid issues, and verif
 Use $code-review-checklist to review these changes for bugs and risks.
 ```
 
-## Quy Tac Thuc Chien
+## Quy Tắc Thực Chiến
 
-1. Khong chac thi bat dau bang `$workspace-operating-system`.
-2. Chac domain roi thi goi thang skill chinh.
-3. Task lon thi de AI ghep nhieu skill theo thu tu.
-4. Task code thi luon yeu cau verify hoac test sau khi sua.
-5. Task review thi uu tien bug, regression, missing test truoc phan style.
-6. Neu task da co plan, dung `$executing-plans` thay vi de AI vua nghi vua che lai ke hoach.
-7. Neu task can "done that su", dung them `$verification-before-completion` hoac goi thang `$closed-loop-delivery`.
-8. Task code khong nho thi nen lam tren branch hoac worktree rieng.
-9. Truoc khi merge hay deploy, AI phai noi ro no dang o branch nao, da verify gi, va de xuat next step nao.
-10. Task nguy co cao thi AI phai noi ro dau la prototype, dau la simulation, dau la production claim.
+1. Không chắc thì bắt đầu bằng `$workspace-operating-system`.
+2. Chắc domain rồi thì gọi thẳng skill chính.
+3. Task lớn thì để AI ghép nhiều skill theo thứ tự.
+4. Task code thì luôn yêu cầu verify hoặc test sau khi sửa.
+5. Task review thì ưu tiên bug, regression, missing test trước phần style.
+6. Nếu task đã có plan, dùng `$executing-plans` thay vì để AI vừa nghĩ vừa chế lại kế hoạch.
+7. Nếu task cần hoàn tất thật sự, dùng thêm `$verification-before-completion` hoặc gọi thẳng `$closed-loop-delivery`.
+8. Task code không nhỏ thì nên làm trên branch hoặc worktree riêng.
+9. Trước khi merge hay deploy, AI phải nói rõ nó đang ở branch nào, đã verify gì, và đề xuất next step nào.
+10. Task nguy cơ cao thì AI phải nói rõ đâu là prototype, đâu là simulation, đâu là production claim.
 
-## Quy Trinh Khuyen Dung
+## Quy Trình Khuyên Dùng
 
-### 1. Task moi hoac nhieu domain
+### 1. Task mới hoặc nhiều domain
 
 ```text
 Use $workspace-operating-system to choose the right skills and execution order for building this feature.
@@ -163,56 +165,56 @@ Use $receiving-code-review to process these review comments, apply valid fixes, 
 Use $workspace-operating-system to choose the right review stack, then review this code with a risk-first mindset.
 ```
 
-### 6. Task thi cong theo plan
+### 6. Task thi công theo plan
 
 ```text
 Use $executing-plans to implement this approved plan without drifting from scope.
 ```
 
-### 7. Task can chot den noi den chon
+### 7. Task cần chốt đến nơi đến chốn
 
 ```text
 Use $closed-loop-delivery to finish this task end to end and only stop when the acceptance criteria are proven.
 ```
 
-### 8. Task tai lieu, brief, hoac noi dung can trinh bay ro
+### 8. Task tài liệu, brief, hoặc nội dung cần trình bày rõ
 
-Goi theo huong viet va dieu phoi noi dung:
+Gọi theo hướng viết và điều phối nội dung:
 
 - `$doc-coauthoring`
 - `$internal-comms`
-- Them `$brand-guidelines` neu can chuan hoa giong thuong hieu
+- thêm `$brand-guidelines` nếu cần chuẩn hóa giọng thương hiệu
 
-## Cau Truc Can Biet
+## Cấu Trúc Cần Biết
 
 - `.agent/skills/`
-  - thu vien skill chinh va la cay skill chuan duy nhat
+  - thư viện skill chính và là cây skill chuẩn duy nhất
 - `.agent/agents/`
-  - chuyen gia theo vai tro
+  - chuyên gia theo vai trò
 - `.agent/workflows/`
-  - workflow dieu phoi
+  - workflow điều phối
 - `.agent/skills/workspace-operating-system/`
-  - skill trung tam
+  - skill trung tâm
 - `.agent/skills/workspace-operating-system/references/task-routing.md`
-  - map nhanh tu loai task sang skill phu hop
+  - map nhanh từ loại task sang skill phù hợp
 - `.agent/skills/workspace-operating-system/references/composition-patterns.md`
-  - cach ghep nhieu skill voi nhau
+  - cách ghép nhiều skill với nhau
 - `.agent/skills/workspace-operating-system/references/quality-bar.md`
-  - chuan toi thieu truoc khi ket thuc task
+  - chuẩn tối thiểu trước khi kết thúc task
 - `.agent/skills/workspace-operating-system/references/operating-charter.md`
-  - operating model kieu team senior, boundary cho bai toan tham vong va nhay cam
+  - operating model kiểu team senior, boundary cho bài toán tham vọng và nhạy cảm
 - `.agent/skills/workspace-operating-system/references/branch-and-release-policy.md`
-  - branch-first, PR-first, va flow merge/promotion
+  - branch-first, PR-first, và flow merge/promotion
 - `.agent/skills/workspace-operating-system/references/idea-to-program-playbook.md`
-  - bien y tuong lon thanh brief, milestone, va verification slices
+  - biến ý tưởng lớn thành brief, milestone, và verification slices
 - `.agent/skills/workspace-operating-system/references/department-operating-model.md`
-  - mo hinh van hanh theo cac lane nhu product, architecture, build, QA, security, ops
+  - mô hình vận hành theo các lane như product, architecture, build, QA, security, ops
 - `.agent/skills/workspace-operating-system/references/skill-catalog.md`
-  - danh sach day du cac skill hien co
+  - danh sách đầy đủ các skill hiện có
 
-## Prompt Mau Co The Copy Ngay
+## Prompt Mẫu Có Thể Copy Ngay
 
-### Prompt tong quat
+### Prompt tổng quát
 
 ```text
 Use $workspace-operating-system to understand this request, pick the minimum effective skill stack, do the work, and verify the result before finishing.
@@ -224,61 +226,61 @@ Use $workspace-operating-system to understand this request, pick the minimum eff
 Use $workspace-operating-system to build this feature end-to-end, including planning, implementation, and verification.
 ```
 
-### Prompt y tuong lon
+### Prompt ý tưởng lớn
 
 ```text
 Use $workspace-operating-system to turn this ambitious idea into a real engineering program with requirements, architecture, prototype scope, verification strategy, and staged delivery.
 ```
 
-### Prompt he thong lon
+### Prompt hệ thống lớn
 
 ```text
 Use $systems-engineering to shape this mission-style system into interfaces, telemetry, simulation boundaries, operator workflows, and a first verifiable delivery slice.
 ```
 
-### Prompt sua bug
+### Prompt sửa bug
 
 ```text
 Use $workspace-operating-system to route this issue, identify the root cause, patch it, and verify the fix.
 ```
 
-### Prompt lam UI
+### Prompt làm UI
 
 ```text
 Use $frontend-design to improve this UI with a stronger visual direction and better UX clarity.
 ```
 
-### Prompt kiem tra web
+### Prompt kiểm tra web
 
 ```text
 Use $webapp-testing to inspect the app, discover selectors, and verify the key user journeys.
 ```
 
-## Cach Nang Cap Sau Nay
+## Cách Nâng Cấp Sau Này
 
-Neu ban them hoac sua skill:
+Nếu bạn thêm hoặc sửa skill:
 
-1. cap nhat `SKILL.md` cua skill do
-2. neu skill loi thi them `agents/openai.yaml`
-3. chay lai script build catalog:
+1. cập nhật `SKILL.md` của skill đó
+2. nếu skill lớn thì thêm `agents/openai.yaml`
+3. chạy lại script build catalog:
 
 ```text
 python .agent/skills/workspace-operating-system/scripts/build_skill_catalog.py
 ```
 
-## Ghi Chu Quan Trong
+## Ghi Chú Quan Trọng
 
-- Bo nay da dung duoc ngay.
-- Bay gio chi con mot cay skill chuan la `.agent/skills/`.
-- Repo nay da duoc gop that su, khong con hai thu vien skill song song nua.
-- Mac dinh repo nay la local-first: khong bat san MCP server ben ngoai.
-- Task code nghiem tuc nen di theo branch/worktree -> verify -> PR/integration -> main.
-- 4 skill file van phong co license han che da duoc go bo khoi ban public cua bundle.
-- Cac workflow moi duoc viet lai theo he Codex hien tai, khong import launcher hay app shell tu bundle la vao cay skill chinh.
+- Bộ này đã dùng được ngay.
+- Bây giờ chỉ còn một cây skill chuẩn là `.agent/skills/`.
+- Repo này đã được gộp thật sự, không còn hai thư viện skill song song nữa.
+- Mặc định repo này là local-first: không bật sẵn MCP server bên ngoài.
+- Task code nghiêm túc nên đi theo branch/worktree -> verify -> PR/integration -> main.
+- 4 skill file văn phòng có license hạn chế đã được gỡ bỏ khỏi bản public của bundle.
+- Các workflow mới được viết lại theo hệ Codex hiện tại, không import launcher hay app shell từ bundle lạ vào cây skill chính.
 
-## Cau Mo Dau Tot Nhat
+## Câu Mở Đầu Tốt Nhất
 
-Neu chi chon dung mot cau de bat dau, hay dung:
+Nếu chỉ chọn đúng một câu để bắt đầu, hãy dùng:
 
 ```text
 Use $workspace-operating-system to decide what to do first, which skills to load, and how to verify the result.

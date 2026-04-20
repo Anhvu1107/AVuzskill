@@ -2,9 +2,16 @@
 
 This repository is a truly merged skill system that combines the local `.agent` toolkit and the `skills-main` repository into one operating system for future AI agents.
 
-For day-to-day usage, start with `HUONG_DAN_SU_DUNG.md`.
+For day-to-day usage, start with `HUONG_DAN_SU_DUNG.md` (Vietnamese) or `USAGE_GUIDE.md` (English).
 
-For the full operating manual, read `SO_TAY_VAN_HANH.md`.
+For the full operating manual, read `SO_TAY_VAN_HANH.md` (Vietnamese) or `OPERATIONS_MANUAL.md` (English).
+
+For hardening history and bundle cleanup details, read `BAO_CAO_HARDENING.md` (Vietnamese) or `HARDENING_REPORT.md` (English).
+
+## Language Notes
+
+- Vietnamese originals now use full diacritics for readability and better AI parsing.
+- English companion files are provided for every top-level Vietnamese guide.
 
 ## Mission
 

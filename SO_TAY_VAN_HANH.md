@@ -1,54 +1,56 @@
-# So Tay Van Hanh
+# Sổ Tay Vận Hành
 
-File nay la manual tong cho `agent-skills-unified`.
+Bản tiếng Anh: `OPERATIONS_MANUAL.md`
 
-Neu can bat dau nhanh, doc `HUONG_DAN_SU_DUNG.md`.
-Neu can hieu day du cach bo nay van hanh, duoc mo rong, duoc harden, va duoc bao tri, doc file nay.
+File này là manual tổng cho `agent-skills-unified`.
 
-## 1. Muc Tieu
+Nếu cần bắt đầu nhanh, đọc `HUONG_DAN_SU_DUNG.md`.
+Nếu cần hiểu đầy đủ cách bộ này vận hành, được mở rộng, được harden, và được bảo trì, đọc file này.
 
-Bo nay khong phai chi la mot thu vien skill.
+## 1. Mục Tiêu
 
-No la mot he van hanh cho AI agent:
+Bộ này không phải chỉ là một thư viện skill.
 
-- biet nen doc gi truoc
-- biet chon skill nao dung
-- biet khi nao can ghep nhieu skill
-- biet cach verify truoc khi chot
-- biet cach nang cap bundle ma khong lam no rot vao tinh trang tap nham, mo ho, hoac kho trigger
+Nó là một hệ vận hành cho AI agent:
+
+- biết nên đọc gì trước
+- biết chọn skill nào đúng
+- biết khi nào cần ghép nhiều skill
+- biết cách verify trước khi chốt
+- biết cách nâng cấp bundle mà không làm nó rơi vào tình trạng tạp nham, mơ hồ, hoặc khó trigger
 
 ### 1.1 Operating Charter
 
-Bo nay duoc huan luyen de van hanh nhu mot team senior:
+Bộ này được huấn luyện để vận hành như một team senior:
 
-- frame dung bai toan
-- tach scope va risk
-- chon architecture va workflow phu hop
-- lam tren branch/worktree khi can
-- verify bang bang chung
-- handoff ro rang cho nguoi hoac AI khac
+- frame đúng bài toán
+- tách scope và risk
+- chọn architecture và workflow phù hợp
+- làm trên branch/worktree khi cần
+- verify bằng bằng chứng
+- handoff rõ ràng cho người hoặc AI khác
 
-Neu gap y tuong qua lon hoac tham vong, khong duoc gia vo nhu da san sang production.
+Nếu gặp ý tưởng quá lớn hoặc tham vọng, không được giả vờ như đã sẵn sàng production.
 
-Phai tach:
+Phải tách:
 
 - concept
 - prototype
 - simulator
 - production
-- verification va operations
+- verification và operations
 
-### 1.2 Boundary An Toan
+### 1.2 Boundary An Toàn
 
-Bo nay khong duoc dung de ho tro:
+Bộ này không được dùng để hỗ trợ:
 
 - weapon guidance, targeting, kill-chain
 - malware, credential theft, unauthorized access, exfiltration
-- giam sat con nguoi khong dong y
-- loi hua trading "luon thang"
+- giám sát con người không đồng ý
+- lời hứa trading "luôn thắng"
 - fake verification, fake benchmark, fake readiness
 
-Neu request cham vao vung nay, phai pivot sang huong hop phap va an toan hon:
+Nếu request chạm vào vùng này, phải pivot sang hướng hợp pháp và an toàn hơn:
 
 - simulation
 - telemetry
@@ -56,45 +58,45 @@ Neu request cham vao vung nay, phai pivot sang huong hop phap va an toan hon:
 - safety analysis
 - risk dashboard
 
-## 2. Tu Duy Nen Dung
+## 2. Tư Duy Nên Dùng
 
-Hay nhin bundle nay theo 4 lop:
+Hãy nhìn bundle này theo 4 lớp:
 
 1. `workspace-operating-system`
-   - lop dieu phoi trung tam
+   - lớp điều phối trung tâm
 2. `skills/`
-   - tri thuc va workflow theo domain
+   - tri thức và workflow theo domain
 3. `agents/`
-   - prompt chuyen gia theo vai tro
+   - prompt chuyên gia theo vai trò
 4. `workflows/`
-   - diem vao theo kieu command/procedure
+   - điểm vào theo kiểu command/procedure
 
-Them vao do:
+Thêm vào đó:
 
 - `rules/`
-  - rang buoc toan cuc
+  - ràng buộc toàn cục
 - `scripts/`
-  - helper va validator
+  - helper và validator
 - `.shared/`
-  - tai nguyen dung chung
+  - tài nguyên dùng chung
 
-## 3. Cau Truc Chuan
+## 3. Cấu Trúc Chuẩn
 
 Root repo:
 
 - `README.md`
-  - giai thich repo la gi
+  - giải thích repo là gì
 - `HUONG_DAN_SU_DUNG.md`
   - quick start
 - `SO_TAY_VAN_HANH.md`
-  - manual tong
+  - manual tổng
 - `BAO_CAO_HARDENING.md`
-  - lich su va nguyen tac lam sach/hardening
+  - lịch sử và nguyên tắc làm sạch/hardening
 
 Runtime tree:
 
 - `.agent/skills/`
-  - thu vien skill canonical duy nhat
+  - thư viện skill canonical duy nhất
 - `.agent/agents/`
   - 20 agent prompts
 - `.agent/workflows/`
@@ -106,121 +108,118 @@ Runtime tree:
 - `.agent/.shared/`
   - shared assets
 
-Tinh trang hien tai:
+Tình trạng hiện tại:
 
 - `55` skills
 - `20` agents
 - `11` workflows
 - `1` rules file
 
-## 4. Thu Tu AI Nen Doc Khi Vao Repo
+## 4. Thứ Tự AI Nên Đọc Khi Vào Repo
 
-Day la trinh tu de mot AI moi vao repo va van hanh dung:
+Đây là trình tự để một AI mới vào repo và vận hành đúng:
 
-1. Doc `.agent/skills/workspace-operating-system/SKILL.md`
-2. Doc:
+1. Đọc `.agent/skills/workspace-operating-system/SKILL.md`
+2. Đọc:
    - `.agent/skills/workspace-operating-system/references/task-routing.md`
    - `.agent/skills/workspace-operating-system/references/quality-bar.md`
    - `.agent/skills/workspace-operating-system/references/operating-charter.md`
-   - neu task la idea/pitch tham vong: `idea-to-program-playbook.md`
-   - neu task can van hanh nhu mot team: `department-operating-model.md`
-3. Neu task la code, infra, release, hoac deployment:
-   - doc them `branch-and-release-policy.md`
-4. Neu task nhieu domain:
-   - doc them `composition-patterns.md`
-5. Neu chua chac skill nao:
-   - doc `skill-catalog.md`
-6. Sau do moi doc `SKILL.md` cua skill chinh
-7. Chi doc `references/` khi thuc su can
-8. Neu task can role chuyen biet:
-   - doc agent phu hop trong `.agent/agents/`
-9. Neu task theo kieu command/process co san:
-   - doc workflow phu hop trong `.agent/workflows/`
+   - nếu task là idea/pitch tham vọng: `idea-to-program-playbook.md`
+   - nếu task cần vận hành như một team: `department-operating-model.md`
+3. Nếu task là code, infra, release, hoặc deployment:
+   - đọc thêm `branch-and-release-policy.md`
+4. Nếu task nhiều domain:
+   - đọc thêm `composition-patterns.md`
+5. Nếu chưa chắc skill nào:
+   - đọc `skill-catalog.md`
+6. Sau đó mới đọc `SKILL.md` của skill chính
+7. Chỉ đọc `references/` khi thực sự cần
+8. Nếu task cần role chuyên biệt:
+   - đọc agent phù hợp trong `.agent/agents/`
+9. Nếu task theo kiểu command/process có sẵn:
+   - đọc workflow phù hợp trong `.agent/workflows/`
 
-Nguyen tac:
+Nguyên tắc:
 
-- di tu tong quan -> route -> skill chinh -> reference sau
-- khong doc lan tung folder mot cach mu quang
-- khong load het context neu task khong can
-- task code nghiem tuc thi luon nghi theo branch/review/release path
+- đi từ tổng quan -> route -> skill chính -> reference sau
+- không đọc lần từng folder một cách mù quáng
+- không load hết context nếu task không cần
+- task code nghiêm túc thì luôn nghĩ theo branch/review/release path
 
-## 5. Entry Point Chuan
+## 5. Entry Point Chuẩn
 
-Mac dinh, cau mo dau tot nhat la:
+Mặc định, câu mở đầu tốt nhất là:
 
 ```text
 Use $workspace-operating-system to decide the right skill stack, sequence the work, and verify the result.
 ```
 
-Dung entry nay khi:
+Dùng entry này khi:
 
-- task mo ho
-- task lon
-- task nhieu domain
-- task co gia tri cao
-- task can quality bar ro rang
+- task mơ hồ
+- task lớn
+- task nhiều domain
+- task có giá trị cao
+- task cần quality bar rõ ràng
 
-## 6. Cach Route Task
+## 6. Cách Route Task
 
-### 6.1 Task mo rong ung dung
+### 6.1 Task mở rộng ứng dụng
 
-Dung:
+Dùng:
 
 - `app-builder`
 - support: `architecture`, `frontend-design`, `api-patterns`, `database-design`, `deployment-procedures`, `closed-loop-delivery`
 
-### 6.2 Task kien truc
+### 6.2 Task kiến trúc
 
-Dung:
+Dùng:
 
 - `architecture`
 
-### 6.2b Task he thong lon, mission software, simulation
+### 6.2b Task hệ thống lớn, mission software, simulation
 
-Dung:
+Dùng:
 
 - `systems-engineering`
 
-Doc them:
+Đọc thêm:
 
 - `references/mission-software-playbook.md`
 - `references/simulation-first-delivery.md`
 - `references/interface-control-checklist.md`
-
-Doc them:
-
 - `references/decision-playbook.md`
 - `references/adr-checklist.md`
 
 ### 6.3 Task API
 
-Dung:
+Dùng:
 
 - `api-patterns`
 
-Doc them:
+Đọc thêm:
 
 - `references/contract-playbook.md`
 - `references/api-review-checklist.md`
 
 ### 6.4 Task UI/frontend
 
-Dung:
+Dùng:
 
 - `frontend-design`
-- support tuy task: `web-design-guidelines`, `tailwind-patterns`, `nextjs-react-expert`, `mobile-design`
+- support tùy task: `web-design-guidelines`, `tailwind-patterns`, `nextjs-react-expert`, `mobile-design`
 
 ### 6.5 Task debug
 
-Dung:
+Dùng:
 
 - `systematic-debugging`
-- support: domain skill lien quan
-- verify them bang `webapp-testing` hoac `testing-patterns`
+- support: domain skill liên quan
+- verify thêm bằng `webapp-testing` hoặc `testing-patterns`
 
-### 6.6 Task can done-that-su
+### 6.6 Task cần hoàn tất thật sự
 
-Dung:
+Dùng:
 
 - `closed-loop-delivery`
 - support:
@@ -228,9 +227,9 @@ Dung:
   - `receiving-code-review`
   - `webapp-testing`
 
-### 6.7 Task da co plan
+### 6.7 Task đã có plan
 
-Dung:
+Dùng:
 
 - `executing-plans`
 - support:
@@ -240,44 +239,44 @@ Dung:
 
 ### 6.8 Task review feedback
 
-Dung:
+Dùng:
 
 - `receiving-code-review`
 
-Khac voi:
+Khác với:
 
 - `code-review-checklist`
-  - dung khi chinh minh di review code
+  - dùng khi chính mình đi review code
 
-### 6.9 Task hieu nang React/Next.js
+### 6.9 Task hiệu năng React/Next.js
 
-Dung:
+Dùng:
 
 - `nextjs-react-expert`
 
-Doc them:
+Đọc thêm:
 
 - `references/performance-investigation-playbook.md`
 - `references/app-router-checklist.md`
 
-## 7. Nguyen Tac Thiet Ke Skill
+## 7. Nguyên Tắc Thiết Kế Skill
 
-Bo nay dang theo mot rule rat quan trong:
+Bộ này đang theo một rule rất quan trọng:
 
-- `SKILL.md` phai gon, ro trigger, ro workflow
-- tri thuc sau dua xuong `references/`
+- `SKILL.md` phải gọn, rõ trigger, rõ workflow
+- tri thức sâu đưa xuống `references/`
 
-Ly do:
+Lý do:
 
-- `SKILL.md` qua dai se trigger kem
-- AI can mot lop dieu phoi gon de load nhanh
-- tri thuc senior-grade nen duoc luu thanh playbook/checklist/matrix o `references/`
+- `SKILL.md` quá dài sẽ trigger kém
+- AI cần một lớp điều phối gọn để load nhanh
+- tri thức senior-grade nên được lưu thành playbook/checklist/matrix ở `references/`
 
-Mau ly tuong cua mot skill:
+Mẫu lý tưởng của một skill:
 
 - `SKILL.md`
-  - khi nao dung
-  - quy trinh chinh
+  - khi nào dùng
+  - quy trình chính
   - related skills
 - `references/`
   - playbook
@@ -285,15 +284,15 @@ Mau ly tuong cua mot skill:
   - review checklist
   - advanced heuristics
 - `agents/openai.yaml`
-  - metadata de discover/invoke dep hon
+  - metadata để discover/invoke đẹp hơn
 
-## 8. Catalog Skill Chinh
+## 8. Catalog Skill Chính
 
-De xem day du tat ca skill:
+Để xem đầy đủ tất cả skill:
 
 - `.agent/skills/workspace-operating-system/references/skill-catalog.md`
 
-Nhom skill quan trong nhat:
+Nhóm skill quan trọng nhất:
 
 - Operating:
   - `workspace-operating-system`
@@ -327,7 +326,7 @@ Nhom skill quan trong nhat:
 
 ## 9. Catalog Agent
 
-Day la 20 agent hien co trong `.agent/agents/`:
+Đây là 20 agent hiện có trong `.agent/agents/`:
 
 - `backend-specialist`
   - backend, server, API, auth, database integration
@@ -340,17 +339,17 @@ Day la 20 agent hien co trong `.agent/agents/`:
 - `devops-engineer`
   - deployment, rollback, CI/CD, server operations
 - `documentation-writer`
-  - docs khi user yeu cau ro rang
+  - docs khi user yêu cầu rõ ràng
 - `explorer-agent`
   - deep codebase discovery
 - `frontend-specialist`
   - React/Next.js UI architecture
 - `game-developer`
-  - game logic va engines
+  - game logic và engines
 - `mobile-developer`
   - React Native, Flutter, mobile patterns
 - `orchestrator`
-  - dieu phoi nhieu agent
+  - điều phối nhiều agent
 - `penetration-tester`
   - offensive security
 - `performance-optimizer`
@@ -360,99 +359,99 @@ Day la 20 agent hien co trong `.agent/agents/`:
 - `product-owner`
   - backlog, MVP, strategic prioritization
 - `project-planner`
-  - planning va breakdown
+  - planning và breakdown
 - `qa-automation-engineer`
   - e2e, regression, automation infra
 - `security-auditor`
   - OWASP, auth, supply chain, security review
 - `seo-specialist`
-  - SEO va GEO
+  - SEO và GEO
 - `test-engineer`
   - tests, TDD, coverage
 
-Nguyen tac dung agent:
+Nguyên tắc dùng agent:
 
-- dung agent khi role thuc su quan trong voi task
-- khong thay agent cho skill; agent va skill la 2 lop khac nhau
-- skill lo tri thuc/quy trinh
-- agent lo goc nhin va vai tro
+- dùng agent khi role thực sự quan trọng với task
+- không thay agent cho skill; agent và skill là 2 lớp khác nhau
+- skill lo tri thức/quy trình
+- agent lo góc nhìn và vai trò
 
 ## 10. Catalog Workflow
 
-11 workflow hien co trong `.agent/workflows/`:
+11 workflow hiện có trong `.agent/workflows/`:
 
 - `brainstorm.md`
   - structured brainstorming
 - `create.md`
-  - tao ung dung moi
+  - tạo ứng dụng mới
 - `debug.md`
-  - dieu tra loi co he thong
+  - điều tra lỗi có hệ thống
 - `deploy.md`
   - deployment flow
 - `enhance.md`
-  - nang cap feature hien co
+  - nâng cấp feature hiện có
 - `orchestrate.md`
-  - dieu phoi nhieu agent
+  - điều phối nhiều agent
 - `plan.md`
-  - lap ke hoach
+  - lập kế hoạch
 - `preview.md`
-  - quan ly preview/local server
+  - quản lý preview/local server
 - `status.md`
-  - theo doi trang thai
+  - theo dõi trạng thái
 - `test.md`
-  - sinh/chay tests
+  - sinh/chạy tests
 - `ui-ux-pro-max.md`
-  - luong thao tac UI
+  - luồng thao tác UI
 
-Luu y:
+Lưu ý:
 
-- workflows la diem vao theo process
-- skills van la lop tri thuc canonical
-- neu workflow cu/legacy xung dot voi `workspace-operating-system`, uu tien routing tu skill trung tam
+- workflows là điểm vào theo process
+- skills vẫn là lớp tri thức canonical
+- nếu workflow cũ/legacy xung đột với `workspace-operating-system`, ưu tiên routing từ skill trung tâm
 
 ## 11. Rules
 
-Hien tai co 1 global rule file:
+Hiện tại có 1 global rule file:
 
 - `.agent/rules/GEMINI.md`
 
-Vai tro cua no:
+Vai trò của nó:
 
-- giu compatibility voi mot so he cu
-- mo ta framework-style behavior rong
+- giữ compatibility với một số hệ cũ
+- mô tả framework-style behavior rộng
 
-Nhung can hieu ro:
+Nhưng cần hiểu rõ:
 
-- runtime canonical hien tai van nen bat dau tu `workspace-operating-system`
-- `GEMINI.md` la file inherited legacy, khong nen tiep tuc phinh to no
-- rule moi nen ngan, ro, va toi gian
+- runtime canonical hiện tại vẫn nên bắt đầu từ `workspace-operating-system`
+- `GEMINI.md` là file inherited legacy, không nên tiếp tục phình to nó
+- rule mới nên ngắn, rõ, và tối giản
 
-Khuyen nghi:
+Khuyến nghị:
 
-- de `rules/` cho rang buoc that su toan cuc
-- de logic route/execution o `skills/workspace-operating-system`
-- de domain knowledge o `skills/*`
+- để `rules/` cho ràng buộc thật sự toàn cục
+- để logic route/execution ở `skills/workspace-operating-system`
+- để domain knowledge ở `skills/*`
 
-## 12. Rule Uu Tien
+## 12. Rule Ưu Tiên
 
-Trong repo nay, nen nghi theo thu tu:
+Trong repo này, nên nghĩ theo thứ tự:
 
 1. user request
 2. `workspace-operating-system`
-3. skill chinh cua task
-4. reference cua skill do
-5. agent role neu co dung agent
-6. workflow neu task vao theo workflow
-7. global rules de giu compatibility
+3. skill chính của task
+4. reference của skill đó
+5. agent role nếu có dùng agent
+6. workflow nếu task vào theo workflow
+7. global rules để giữ compatibility
 
-Nguyen tac don gian:
+Nguyên tắc đơn giản:
 
-- rule nao cu the hon va gan task hon thi uu tien de lam viec
-- rule nao cu/legacy ma mau thuan voi he canonical moi thi phai review can than
+- rule nào cụ thể hơn và gần task hơn thì ưu tiên để làm việc
+- rule nào cũ/legacy mà mâu thuẫn với hệ canonical mới thì phải review cẩn thận
 
-## 13. Prompt Mau Cho Human
+## 13. Prompt Mẫu Cho Human
 
-### Route tong quat
+### Route tổng quát
 
 ```text
 Use $workspace-operating-system to route this task, choose the minimum effective skill stack, and verify the result.
@@ -494,180 +493,180 @@ Use $receiving-code-review to process these review comments, apply valid fixes, 
 Use $nextjs-react-expert to find the main bottleneck and optimize this React or Next.js flow deliberately.
 ```
 
-## 14. Cac Quy Trinh Vang
+## 14. Các Quy Trình Vàng
 
-### 14.1 Build feature lon
+### 14.1 Build feature lớn
 
-Trinh tu nen dung:
+Trình tự nên dùng:
 
 1. `workspace-operating-system`
-2. `app-builder`, `architecture`, hoac `systems-engineering`
+2. `app-builder`, `architecture`, hoặc `systems-engineering`
 3. `plan-writing`
 4. `executing-plans`
 5. domain skills
 6. `verification-before-completion`
 7. `finishing-a-development-branch`
 
-### 14.2 Sua bug kho
+### 14.2 Sửa bug khó
 
 1. `workspace-operating-system`
 2. `systematic-debugging`
-3. domain skill lien quan
-4. `testing-patterns` hoac `webapp-testing`
+3. domain skill liên quan
+4. `testing-patterns` hoặc `webapp-testing`
 5. `verification-before-completion`
 
-### 14.3 Xu ly review feedback
+### 14.3 Xử lý review feedback
 
 1. `receiving-code-review`
 2. domain skill
 3. `verification-before-completion`
-4. neu can done-that-su -> `closed-loop-delivery`
+4. nếu cần hoàn tất thật sự -> `closed-loop-delivery`
 
 ### 14.4 Performance pass
 
 1. `nextjs-react-expert`
 2. `performance-profiling`
-3. `frontend-design` neu co tac dong UX
+3. `frontend-design` nếu có tác động UX
 4. `verification-before-completion`
 
-## 15. Cach Them Skill Moi
+## 15. Cách Thêm Skill Mới
 
-Khi them skill moi:
+Khi thêm skill mới:
 
-1. Tao folder trong `.agent/skills/<skill-name>/`
-2. Tao `SKILL.md`
-3. Neu can tri thuc sau:
-   - tao `references/`
-4. Neu can metadata dep:
-   - tao `agents/openai.yaml`
-5. Neu can helper repeatable:
-   - tao `scripts/`
-6. Chay lai:
+1. Tạo folder trong `.agent/skills/<skill-name>/`
+2. Tạo `SKILL.md`
+3. Nếu cần tri thức sâu:
+   - tạo `references/`
+4. Nếu cần metadata đẹp:
+   - tạo `agents/openai.yaml`
+5. Nếu cần helper repeatable:
+   - tạo `scripts/`
+6. Chạy lại:
 
 ```text
 python .agent/skills/workspace-operating-system/scripts/build_skill_catalog.py
 ```
 
-Checklist truoc khi commit:
+Checklist trước khi commit:
 
-- ten folder va `name:` trong frontmatter phai khop
-- `description:` phai noi ro khi nao dung
-- tat ca reference trong `SKILL.md` phai ton tai
-- khong nhac file/duong dan he cu sai context
-- khong import launcher/app shell la vao cay runtime
-- voi he thong lon, phai noi ro dau la concept, dau la simulator, dau la prototype, va dau la production claim
+- tên folder và `name:` trong frontmatter phải khớp
+- `description:` phải nói rõ khi nào dùng
+- tất cả reference trong `SKILL.md` phải tồn tại
+- không nhắc file/đường dẫn hệ cũ sai context
+- không import launcher/app shell lạ vào cây runtime
+- với hệ thống lớn, phải nói rõ đâu là concept, đâu là simulator, đâu là prototype, và đâu là production claim
 
-## 16. Cach Nang Cap Skill Cu
+## 16. Cách Nâng Cấp Skill Cũ
 
-Khi mot skill cu qua rong, mo ho, hoac mang dau vet inherited source:
+Khi một skill cũ quá rộng, mơ hồ, hoặc mang dấu vết inherited source:
 
-1. Rut gon `SKILL.md`
-2. Lam ro:
-   - khi nao dung
-   - quy trinh chinh
+1. Rút gọn `SKILL.md`
+2. Làm rõ:
+   - khi nào dùng
+   - quy trình chính
    - related skills
-3. Chuyen tri thuc sau xuong `references/`
-4. Them checklist/playbook senior-grade
-5. Them `agents/openai.yaml` neu skill quan trong
+3. Chuyển tri thức sâu xuống `references/`
+4. Thêm checklist/playbook senior-grade
+5. Thêm `agents/openai.yaml` nếu skill quan trọng
 6. Rebuild catalog
 
-Day la cach bundle nay da duoc nang cap.
+Đây là cách bundle này đã được nâng cấp.
 
-## 17. Cach Bao Tri Agent
+## 17. Cách Bảo Trì Agent
 
-Khi sua `agents/*.md`:
+Khi sửa `agents/*.md`:
 
-- mo ta ro role
-- giai thich khi nao nen dung
-- khong de agent tro thanh ban sao cua skill
-- de skill cung cap tri thuc
-- de agent cung cap goc nhin, tone, va vung trach nhiem
+- mô tả rõ role
+- giải thích khi nào nên dùng
+- không để agent trở thành bản sao của skill
+- để skill cung cấp tri thức
+- để agent cung cấp góc nhìn, tone, và vùng trách nhiệm
 
-Agent tot nen:
+Agent tốt nên:
 
-- co description ro trigger
-- biet no dung skill nao
-- khong noi qua nhieu ve framework cu neu runtime da doi
+- có description rõ trigger
+- biết nó dùng skill nào
+- không nói quá nhiều về framework cũ nếu runtime đã đổi
 
-## 18. Cach Bao Tri Workflow
+## 18. Cách Bảo Trì Workflow
 
-Khi sua `workflows/*.md`:
+Khi sửa `workflows/*.md`:
 
-- xem no la entry procedure, khong phai skill thay the
-- giu command flow ro
-- neu logic da duoc skill trung tam quan ly tot hon, workflow nen don gian hoa
-- tranh de workflow override triet ly canonical moi ma khong co ly do
+- xem nó là entry procedure, không phải skill thay thế
+- giữ command flow rõ
+- nếu logic đã được skill trung tâm quản lý tốt hơn, workflow nên đơn giản hóa
+- tránh để workflow override triết lý canonical mới mà không có lý do
 
-## 19. Hardening Va Ownership
+## 19. Hardening Và Ownership
 
-Nguyen tac dang dung:
+Nguyên tắc đang dùng:
 
 - local-first
-- khong bat san MCP ngoai
-- khong ship file nhay cam
-- khong import raw launcher/app shell tu bundle ngoai vao `.agent`
-- khong de workflow khuyen khich direct-to-main khi repo chua cho phep
-- khi go bundle ngoai vao:
+- không bật sẵn MCP ngoài
+- không ship file nhạy cảm
+- không import raw launcher/app shell từ bundle ngoài vào `.agent`
+- không để workflow khuyến khích direct-to-main khi repo chưa cho phép
+- khi gộp bundle ngoài vào:
   - audit
-  - loc
-  - viet lai/cherry-pick
-  - khong merge nguyen cay runtime cua no vao canonical tree
+  - lọc
+  - viết lại/cherry-pick
+  - không merge nguyên cây runtime của nó vào canonical tree
 
-Xem them:
+Xem thêm:
 
 - `BAO_CAO_HARDENING.md`
 
 ## 20. Release Checklist
 
-Truoc khi push:
+Trước khi push:
 
-1. cap nhat file can thiet
-2. rebuild catalog neu inventory/description doi
-3. kiem tra reference link khong gay
-4. chay:
+1. cập nhật file cần thiết
+2. rebuild catalog nếu inventory/description đổi
+3. kiểm tra reference link không gãy
+4. chạy:
 
 ```text
 git diff --check
 ```
 
-5. doc lai:
+5. đọc lại:
    - `README.md`
    - `HUONG_DAN_SU_DUNG.md`
    - `SO_TAY_VAN_HANH.md`
-   neu thay doi tac dong den cach dung
-6. commit ro nghia
-7. push branch dang lam viec
-8. mo hoac chuan bi PR
-9. merge vao `dev`/`test`/staging theo flow cua repo neu co
-10. chi merge vao `main`/`master` sau khi da qua gate verify va duoc phe duyet
+   nếu thay đổi tác động đến cách dùng
+6. commit rõ nghĩa
+7. push branch đang làm việc
+8. mở hoặc chuẩn bị PR
+9. merge vào `dev`/`test`/staging theo flow của repo nếu có
+10. chỉ merge vào `main`/`master` sau khi đã qua gate verify và được phê duyệt
 
-## 21. Dau Hieu He Dang Xau Di
+## 21. Dấu Hiệu Hệ Đang Xấu Đi
 
-Can canh giac neu thay:
+Cần cảnh giác nếu thấy:
 
-- skill ten mot dang, folder mot nẻo
-- `SKILL.md` phinh to va lap y
-- trieu skill trigger trung nhau
-- reference khong ton tai
-- inherited wording cu xuat hien o core skill
-- workflow/agent/rule noi nguoc voi canonical flow
-- catalog khong rebuild sau khi sua frontmatter
+- skill tên một đằng, folder một nẻo
+- `SKILL.md` phình to và lặp ý
+- nhiều skill trigger trùng nhau
+- reference không tồn tại
+- inherited wording cũ xuất hiện ở core skill
+- workflow/agent/rule nói ngược với canonical flow
+- catalog không rebuild sau khi sửa frontmatter
 
-## 22. Quy Tac Vang Cuoi Cung
+## 22. Quy Tắc Vàng Cuối Cùng
 
-Bo nay huong toi chuan:
+Bộ này hướng tới chuẩn:
 
-- ro trigger
-- giau tri thuc
-- it mo ho
-- quality bar ro
-- verification truoc khi chot
-- phong cach senior dev thuc thu
+- rõ trigger
+- giàu tri thức
+- ít mơ hồ
+- quality bar rõ
+- verification trước khi chốt
+- phong cách senior dev thực thụ
 
-Neu phai chon giua:
+Nếu phải chọn giữa:
 
-- dai nhung mo ho
-- va
-- gon nhung ro + co reference sau
+- dài nhưng mơ hồ
+- và
+- gọn nhưng rõ + có reference sâu
 
-thi chon ve sau.
+thì chọn vế sau.

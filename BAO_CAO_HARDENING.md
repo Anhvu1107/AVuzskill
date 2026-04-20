@@ -1,52 +1,54 @@
-# Bao Cao Hardening
+# Báo Cáo Hardening
 
-Ngay audit: 2026-04-20
+Bản tiếng Anh: `HARDENING_REPORT.md`
 
-## Muc Tieu
+Ngày audit: 2026-04-20
 
-Lam bundle nay an toan hon de public, de AI khac co the dung ngay, va de giam toi da cac diem co the gay mo ho ve quyen so huu, ket noi ben ngoai, hoac side-effect tren may.
+## Mục Tiêu
 
-## Da Xu Ly
+Làm bundle này an toàn hơn để public, để AI khác có thể dùng ngay, và để giảm tối đa các điểm có thể gây mơ hồ về quyền sở hữu, kết nối bên ngoài, hoặc side-effect trên máy.
 
-- Go 4 skill co license han che khoi bundle public:
+## Đã Xử Lý
+
+- Gỡ 4 skill có license hạn chế khỏi bundle public:
   - `.agent/skills/docx`
   - `.agent/skills/pdf`
   - `.agent/skills/pptx`
   - `.agent/skills/xlsx`
-- Lam sach `.agent/mcp_config.json` thanh cau hinh rong, khong bat san dich vu MCP ben ngoai.
-- Chuan hoa `.claude-plugin/marketplace.json`:
-  - bo thong tin chu so huu ca nhan
-  - bo path cu `./skills/...` da sai voi cau truc merged
-  - doi metadata sang ten bundle hien tai
+- Làm sạch `.agent/mcp_config.json` thành cấu hình rỗng, không bật sẵn dịch vụ MCP bên ngoài.
+- Chuẩn hóa `.claude-plugin/marketplace.json`:
+  - bỏ thông tin chủ sở hữu cá nhân
+  - bỏ path cũ `./skills/...` đã sai với cấu trúc merged
+  - đổi metadata sang tên bundle hiện tại
 - Harden `.agent/scripts/auto_preview.py`:
-  - bo `shell=True`
-  - resolve lenh npm/yarn/pnpm/bun tren Windows theo cach ro rang hon
-- Mo rong `.gitignore` de bo qua file runtime va log tao ra trong luc preview.
-- Cap nhat lai routing, quality bar, va huong dan su dung theo huong local-first.
-- Audit 2 bundle cong dong moi (`superpowers-main.zip`, `antigravity-awesome-skills-main.zip`) truoc khi gop.
-- Khong import launcher hay app shell tu bundle ngoai vao cay skill chinh:
+  - bỏ `shell=True`
+  - resolve lệnh npm/yarn/pnpm/bun trên Windows theo cách rõ ràng hơn
+- Mở rộng `.gitignore` để bỏ qua file runtime và log tạo ra trong lúc preview.
+- Cập nhật lại routing, quality bar, và hướng dẫn sử dụng theo hướng local-first.
+- Audit 2 bundle cộng đồng mới (`superpowers-main.zip`, `antigravity-awesome-skills-main.zip`) trước khi gộp.
+- Không import launcher hay app shell từ bundle ngoài vào cây skill chính:
   - `superpowers-main/hooks/run-hook.cmd`
   - `antigravity-awesome-skills-main/START_APP.bat`
   - `antigravity-awesome-skills-main/scripts/activate-skills.bat`
-- Chi hap thu cac workflow gia tri cao bang cach viet lai local-first vao skill tree hien tai.
+- Chỉ hấp thụ các workflow giá trị cao bằng cách viết lại local-first vào skill tree hiện tại.
 
-## Ket Qua Audit
+## Kết Quả Audit
 
-- Khong tim thay hidden file la ngoai `.git`.
-- Khong tim thay junction hay reparse point con sot lai.
-- Khong tim thay executable binary dang ngo trong repo.
-- Cac skill con lai khong tu dong ket noi ra ngoai; nhung skill dung provider ben ngoai van la opt-in va can duoc goi ro rang.
-- Da chay custom scan bang Windows Defender tren `D:\\skill\\skill\\agent-skills-unified` va khong co threat nao duoc bao cao.
-- Khong dua file `.bat`, `.cmd`, app web, hay script launcher tu 2 bundle moi vao thu vien skill canonical.
+- Không tìm thấy hidden file lạ ngoài `.git`.
+- Không tìm thấy junction hay reparse point còn sót lại.
+- Không tìm thấy executable binary đáng ngờ trong repo.
+- Các skill còn lại không tự động kết nối ra ngoài; những skill dùng provider bên ngoài vẫn là opt-in và cần được gọi rõ ràng.
+- Đã chạy custom scan bằng Windows Defender trên `D:\\skill\\skill\\agent-skills-unified` và không có threat nào được báo cáo.
+- Không đưa file `.bat`, `.cmd`, app web, hay script launcher từ 2 bundle mới vào thư viện skill canonical.
 
-## Tinh Trang Sau Hardening
+## Tình Trạng Sau Hardening
 
-- Thu vien skill hien tai: duoc tang cuong bang nhom workflow moi cho verification, worktrees, plan execution, review handling, branch closeout, va closed-loop delivery.
-- Cau hinh mac dinh: local-first, khong co MCP server ben ngoai duoc bat san.
-- Metadata/plugin market da duoc lam sach de phu hop voi bundle merged hien tai.
+- Thư viện skill hiện tại: được tăng cường bằng nhóm workflow mới cho verification, worktrees, plan execution, review handling, branch closeout, và closed-loop delivery.
+- Cấu hình mặc định: local-first, không có MCP server bên ngoài được bật sẵn.
+- Metadata/plugin market đã được làm sạch để phù hợp với bundle merged hiện tại.
 
-## Ghi Chu Van Hanh
+## Ghi Chú Vận Hành
 
-- Neu muon dung MCP server ben ngoai, hay tu them cau hinh sau khi review thu cong.
-- Neu muon them lai skill xu ly file van phong, chi nen them tu nguon ma ban chac chan co quyen su dung va phan phoi.
-- Script trong repo van co the doc file du an hoac chay subprocess khi ban chu dong goi no, nhung bundle hien tai khong ship cau hinh nao tu dong lay du lieu may.
+- Nếu muốn dùng MCP server bên ngoài, hãy tự thêm cấu hình sau khi review thủ công.
+- Nếu muốn thêm lại skill xử lý file văn phòng, chỉ nên thêm từ nguồn mà bạn chắc chắn có quyền sử dụng và phân phối.
+- Script trong repo vẫn có thể đọc file dự án hoặc chạy subprocess khi bạn chủ động gọi nó, nhưng bundle hiện tại không ship cấu hình nào tự động lấy dữ liệu máy.
