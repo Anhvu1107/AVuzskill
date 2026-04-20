@@ -4,6 +4,8 @@ This repository is a truly merged skill system that combines the local `.agent` 
 
 For day-to-day usage, start with `HUONG_DAN_SU_DUNG.md`.
 
+For the full operating manual, read `SO_TAY_VAN_HANH.md`.
+
 ## Mission
 
 Make the workspace self-describing enough that an AI can enter cold, choose the right skill set, sequence work correctly, and finish with a consistent quality bar.
