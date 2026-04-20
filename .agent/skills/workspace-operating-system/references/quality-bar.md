@@ -30,6 +30,12 @@ Apply this finish standard to all meaningful work in this repository.
 - Do not recommend direct protected-branch pushes unless the repository explicitly works that way and the user approves.
 - Make the intended merge or promotion path explicit before calling the work release-ready.
 
+## Program-Design Gate
+
+- Large or ambitious ideas should be reduced to milestones, interfaces, and verification slices before broad implementation starts.
+- If the request is system-of-systems or physical-world adjacent, be explicit about what is simulated, what is prototyped, and what is unproven.
+- The first delivery slice should reduce uncertainty, not just generate a lot of files.
+
 ## Before Finishing
 
 - Verify the most important behavior you changed.

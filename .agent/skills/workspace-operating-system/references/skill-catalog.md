@@ -2,7 +2,7 @@
 
 Generated from the current unified skill library.
 
-Total skills: 54
+Total skills: 55
 
 Use this file when the correct skill is unclear and you need exhaustive coverage.
 
@@ -83,3 +83,7 @@ Use this file when the correct skill is unclear and you need exhaustive coverage
 - `game-development`: Game development orchestrator. Routes to platform-specific skills based on project needs.
 - `geo-fundamentals`: Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity).
 - `i18n-localization`: Internationalization and localization patterns. Detecting hardcoded strings, managing translations, locale files, RTL support.
+
+## Unsorted
+
+- `systems-engineering`: Use when a request is bigger than normal app delivery and involves system-of-systems thinking, mission software, simulation, telemetry, interfaces, operators, hardware-adjacent constraints, or staged verification. Apply this skill for ambitious but lawful software programs such as robotics platforms, industrial control support systems, ocean or space mission software, digital twins, and simulation-heavy platforms.

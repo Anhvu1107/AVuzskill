@@ -49,6 +49,12 @@ Bo nay co the giup rat manh cho:
 - simulation
 - control-plane va observability
 
+Neu y tuong thuoc nhom he thong lon, hay goi thang:
+
+```text
+Use $systems-engineering to turn this system idea into a mission brief, subsystem map, simulation-first plan, and first verifiable software slice.
+```
+
 Nhung khong duoc dung de ho tro:
 
 - vu khi, ten lua, guidance targeting
@@ -197,6 +203,10 @@ Goi theo huong viet va dieu phoi noi dung:
   - operating model kieu team senior, boundary cho bai toan tham vong va nhay cam
 - `.agent/skills/workspace-operating-system/references/branch-and-release-policy.md`
   - branch-first, PR-first, va flow merge/promotion
+- `.agent/skills/workspace-operating-system/references/idea-to-program-playbook.md`
+  - bien y tuong lon thanh brief, milestone, va verification slices
+- `.agent/skills/workspace-operating-system/references/department-operating-model.md`
+  - mo hinh van hanh theo cac lane nhu product, architecture, build, QA, security, ops
 - `.agent/skills/workspace-operating-system/references/skill-catalog.md`
   - danh sach day du cac skill hien co
 
@@ -218,6 +228,12 @@ Use $workspace-operating-system to build this feature end-to-end, including plan
 
 ```text
 Use $workspace-operating-system to turn this ambitious idea into a real engineering program with requirements, architecture, prototype scope, verification strategy, and staged delivery.
+```
+
+### Prompt he thong lon
+
+```text
+Use $systems-engineering to shape this mission-style system into interfaces, telemetry, simulation boundaries, operator workflows, and a first verifiable delivery slice.
 ```
 
 ### Prompt sua bug

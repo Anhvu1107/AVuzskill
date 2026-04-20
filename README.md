@@ -63,8 +63,14 @@ The repository now includes an explicit operating layer:
   - senior-team operating model, ambitious-idea handling, and safety boundaries
 - `.agent/skills/workspace-operating-system/references/branch-and-release-policy.md`
   - branch-first delivery, PR discipline, and promotion rules
+- `.agent/skills/workspace-operating-system/references/idea-to-program-playbook.md`
+  - converts bold ideas into requirements, milestones, and verification slices
+- `.agent/skills/workspace-operating-system/references/department-operating-model.md`
+  - maps work into product, architecture, delivery, QA, security, release, and docs lanes
 - `.agent/skills/workspace-operating-system/references/skill-catalog.md`
   - full inventory of available skills
+- `.agent/skills/systems-engineering`
+  - mission-style systems, simulation-first delivery, interfaces, telemetry, and hardware-adjacent software planning
 
 ## What Was Actually Merged
 

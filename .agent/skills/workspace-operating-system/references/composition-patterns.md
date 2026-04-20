@@ -27,6 +27,27 @@ Use for new features, dashboards, landing pages with backend logic, or app shell
 
 Use when the request is "build the app" rather than "improve one slice."
 
+### Idea To Program
+
+- `workspace-operating-system`
+- `brainstorming`
+- `architecture`
+- `plan-writing`
+- `closed-loop-delivery`
+
+Use when the user brings a big idea, rough vision, or half-formed concept and the first job is to turn it into a real program with milestones.
+
+### Ambitious Systems Program
+
+- `systems-engineering`
+- `architecture`
+- `api-patterns`
+- `database-design`
+- `frontend-design`
+- `closed-loop-delivery`
+
+Use for mission software, telemetry platforms, digital twins, robotics support systems, or simulation-first programs that span operators, subsystems, and verification boundaries.
+
 ### Plan Execution
 
 - `plan-writing`

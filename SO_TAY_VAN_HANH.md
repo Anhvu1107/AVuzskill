@@ -108,7 +108,7 @@ Runtime tree:
 
 Tinh trang hien tai:
 
-- `54` skills
+- `55` skills
 - `20` agents
 - `11` workflows
 - `1` rules file
@@ -122,6 +122,8 @@ Day la trinh tu de mot AI moi vao repo va van hanh dung:
    - `.agent/skills/workspace-operating-system/references/task-routing.md`
    - `.agent/skills/workspace-operating-system/references/quality-bar.md`
    - `.agent/skills/workspace-operating-system/references/operating-charter.md`
+   - neu task la idea/pitch tham vong: `idea-to-program-playbook.md`
+   - neu task can van hanh nhu mot team: `department-operating-model.md`
 3. Neu task la code, infra, release, hoac deployment:
    - doc them `branch-and-release-policy.md`
 4. Neu task nhieu domain:
@@ -172,6 +174,18 @@ Dung:
 Dung:
 
 - `architecture`
+
+### 6.2b Task he thong lon, mission software, simulation
+
+Dung:
+
+- `systems-engineering`
+
+Doc them:
+
+- `references/mission-software-playbook.md`
+- `references/simulation-first-delivery.md`
+- `references/interface-control-checklist.md`
 
 Doc them:
 
@@ -293,6 +307,7 @@ Nhom skill quan trong nhat:
 - Product and architecture:
   - `app-builder`
   - `architecture`
+  - `systems-engineering`
   - `api-patterns`
   - `database-design`
   - `mcp-builder`
@@ -486,7 +501,7 @@ Use $nextjs-react-expert to find the main bottleneck and optimize this React or 
 Trinh tu nen dung:
 
 1. `workspace-operating-system`
-2. `app-builder` hoac `architecture`
+2. `app-builder`, `architecture`, hoac `systems-engineering`
 3. `plan-writing`
 4. `executing-plans`
 5. domain skills
@@ -540,6 +555,7 @@ Checklist truoc khi commit:
 - tat ca reference trong `SKILL.md` phai ton tai
 - khong nhac file/duong dan he cu sai context
 - khong import launcher/app shell la vao cay runtime
+- voi he thong lon, phai noi ro dau la concept, dau la simulator, dau la prototype, va dau la production claim
 
 ## 16. Cach Nang Cap Skill Cu
 

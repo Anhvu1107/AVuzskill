@@ -8,8 +8,8 @@ Use this file first. It is the fastest way to map a request shape to the right s
   - Primary: `app-builder`
   - Support: `architecture`, `frontend-design`, `api-patterns`, `database-design`, `deployment-procedures`, `closed-loop-delivery`
 - Ambitious or systems-heavy request
-  - Primary: `architecture`
-  - Support: `app-builder`, `api-patterns`, `database-design`, `closed-loop-delivery`
+  - Primary: `systems-engineering`
+  - Support: `architecture`, `app-builder`, `api-patterns`, `database-design`, `closed-loop-delivery`
   - Notes: start by separating simulator, prototype, and production claims
 - Architecture or system design
   - Primary: `architecture`
@@ -83,3 +83,4 @@ Use this file first. It is the fastest way to map a request shape to the right s
 - If the hardest part is proving the work is truly done, start with `verification-before-completion` or `closed-loop-delivery`.
 - If the task spans multiple domains, choose one primary skill and only then add support skills.
 - If the request touches regulated, safety-critical, or physically grounded systems, define the verification boundary before implementation.
+- If the request starts as a bold vision rather than a spec, use the idea-to-program path before picking implementation slices.

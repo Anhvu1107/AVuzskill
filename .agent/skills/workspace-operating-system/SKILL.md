@@ -24,6 +24,8 @@ Read only when needed:
 - `references/composition-patterns.md` for cross-domain or multi-phase work
 - `references/skill-catalog.md` when the right skill is unclear or you need exhaustive coverage
 - `references/branch-and-release-policy.md` for code, config, infrastructure, release, or deployment work
+- `references/idea-to-program-playbook.md` when the request starts as a vision, pitch, or broad ambition
+- `references/department-operating-model.md` when the task should be run like a coordinated team effort
 
 ## Operating Rules
 
@@ -59,8 +61,10 @@ Read only when needed:
 
 - For broad product work, start with the task shape rather than the technology.
 - For highly regulated or physically grounded ideas, start by separating concept, simulator, prototype, and production scope.
+- For mission-style or hardware-adjacent software, route to `systems-engineering` before collapsing the problem into normal app delivery.
 - For coding tasks, route by the real bottleneck:
   - architecture unclear -> `architecture`
+  - system-of-systems, telemetry, simulation, operator workflows, or interface-heavy scope -> `systems-engineering`
   - implementation heavy -> domain skill such as `app-builder`, `api-patterns`, `frontend-design`, or `database-design`
   - approved plan exists -> `executing-plans`
   - explicit acceptance criteria and end-to-end closure matter -> `closed-loop-delivery`
@@ -85,6 +89,7 @@ Read only when needed:
 - UI request: clarify direction, preserve usability, and avoid generic output
 - Infrastructure or deployment request: favor explicit validation and rollback awareness
 - Ambitious R&D request: architecture -> simulation/prototype -> verification strategy -> staged delivery plan
+- Ambitious systems request: idea framing -> systems-engineering -> architecture -> first simulation or control slice -> verification
 - Repository hardening request: audit -> remove restricted material -> neutralize external defaults -> verify -> document
 
 ## Relationship To Other Skills

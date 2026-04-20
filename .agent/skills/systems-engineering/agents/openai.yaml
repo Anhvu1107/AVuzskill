@@ -1,0 +1,4 @@
+name: systems-engineering
+description: Systems-engineering guidance for mission software, simulation-first delivery, interface contracts, telemetry, and staged verification of ambitious but lawful software programs.
+color: teal
+icon: cpu

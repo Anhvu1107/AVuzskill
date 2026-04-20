@@ -32,7 +32,7 @@ This repository runs as a single canonical `.agent` system.
 - Operating workflow
   - `workspace-operating-system`, `closed-loop-delivery`, `executing-plans`, `parallel-agents`, `plan-writing`
 - Product and architecture
-  - `app-builder`, `architecture`, `api-patterns`, `database-design`, `mcp-builder`
+  - `app-builder`, `architecture`, `systems-engineering`, `api-patterns`, `database-design`, `mcp-builder`
 - Frontend and UX
   - `frontend-design`, `web-design-guidelines`, `tailwind-patterns`, `nextjs-react-expert`, `mobile-design`
 - Quality and verification
@@ -61,3 +61,5 @@ The operating layer should also carry:
 
 - a charter for safety and ambitious-idea handling
 - a branch and release policy for code and deployment work
+- an idea-to-program playbook for bold requests
+- a department operating model for multi-lane delivery
