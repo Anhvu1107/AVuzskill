@@ -9,6 +9,8 @@ description: Use when a request is really about building or extending an applica
 
 Start with the path that matches the job:
 
+- `references/delivery-playbook.md` to choose the right execution mode
+- `references/stack-decision-matrix.md` when stack selection is part of the problem
 - `project-detection.md` to classify the app request
 - `tech-stack.md` to choose the stack
 - `scaffolding.md` for greenfield structure

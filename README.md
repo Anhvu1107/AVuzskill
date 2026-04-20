@@ -83,6 +83,7 @@ The repository now includes an explicit operating layer:
 
 - Prefer one strong entry skill over scattered implicit assumptions.
 - Keep progressive disclosure: read only the references needed for the task.
+- Keep `SKILL.md` files sharp and executable, then move senior-level depth into `references/` instead of bloating the trigger layer.
 - Favor execution, validation, and clarity over vague advice.
 - Keep the merged repo structurally honest: one skill tree, not two mirrored trees.
 - Prefer rewritten, repo-aligned workflows over wholesale imports from external bundles.

@@ -9,6 +9,8 @@ description: Use when a React or Next.js task is bottlenecked by performance, re
 
 Pick the narrowest file that matches the current bottleneck:
 
+- `references/performance-investigation-playbook.md` to structure the investigation
+- `references/app-router-checklist.md` when reviewing App Router boundaries, fetching, and caching
 - `1-async-eliminating-waterfalls.md` for sequential data-fetching and request chains
 - `2-bundle-bundle-size-optimization.md` for large bundles and slow interactivity
 - `3-server-server-side-performance.md` for SSR and server-route performance

@@ -9,10 +9,12 @@ description: Use when the hard part of a request is choosing system shape, bound
 
 Start with:
 
+- `references/decision-playbook.md`
 - `context-discovery.md`
 
 Read only what the task needs after that:
 
+- `references/adr-checklist.md` for formal decision records and architecture sign-off
 - `trade-off-analysis.md` for ADRs, option comparison, and decision records
 - `pattern-selection.md` for architecture and service-pattern choices
 - `patterns-reference.md` for quick pattern lookup

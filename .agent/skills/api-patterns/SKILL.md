@@ -9,6 +9,8 @@ description: Use when designing or reviewing an API contract, endpoint shape, tr
 
 Start with the file that answers the current design question:
 
+- `references/contract-playbook.md` for senior-level contract design and review
+- `references/api-review-checklist.md` for final review before implementation
 - `api-style.md` for REST vs GraphQL vs tRPC
 - `rest.md` for REST endpoint and resource design
 - `graphql.md` for GraphQL fit and schema considerations

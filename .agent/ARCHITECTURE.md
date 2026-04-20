@@ -23,6 +23,7 @@ This repository runs as a single canonical `.agent` system.
 - Route from task shape to the minimum effective skill stack.
 - Use one primary skill unless the task clearly spans multiple domains.
 - Treat verification, ownership, and local-first safety as part of correctness.
+- Keep `SKILL.md` concise enough to trigger well and put deeper decision material in `references/`.
 
 ## Core Skill Families
 
@@ -42,3 +43,14 @@ This repository runs as a single canonical `.agent` system.
 Do not treat imported community bundles as parallel runtime trees.
 
 External sources may inform this repository, but the canonical runtime system is only the content that lives inside this `.agent` directory.
+
+## Knowledge Design Rule
+
+Core skills should follow this shape:
+
+- `SKILL.md`
+  - trigger conditions, workflow, and execution rules
+- `references/`
+  - deep playbooks, decision matrices, review checklists, and senior heuristics
+- `agents/openai.yaml`
+  - UI metadata for discoverability and consistent invocation
